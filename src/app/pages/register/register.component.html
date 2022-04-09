@@ -41,10 +41,10 @@
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <button mat-raised-button color="primary">Create account</button>
-      <div class="redirect-login">
-        <!--        <a href="#" (click)="goToLogin()" > Login here! </a>-->
-        <a [routerLink]="['/login']">Login here!</a>
+      <div class="action-buttons">
+        <button class="round-button" mat-raised-button  color="primary">Create account</button>
+        <button class="round-button" mat-raised-button color="accent" > Login here! </button>
+        <!-- <button (click)="goToLogin()" > Login here! </button> -->
       </div>
     </div>
 
