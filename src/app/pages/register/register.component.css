@@ -10,65 +10,54 @@
   bottom: 0px;
   z-index: -10;
 }
-h1{
+
+* {
+  color: #3F51B5;
+  transition-duration: 0.2s;
+}
+
+h1 {
   text-align: center;
   font-size: x-large;
   font-weight: bold;
+  color: #3F51B5;
 }
-img{
-  /*position: fixed;*/
-  /*display: block;*/
-  /*top: 20vh;*/
-  /*right: 10vw;*/
-  width: 32vw;
-  height: 30vw;
+
+.form-right img {
+  width: 110%;
+  height: auto;
+  margin: -24px;
 }
 
 .container{
   width: 100vw;
   height: 100vh;
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .register-field {
    width: 90%;
-
 }
-/*.mat-form-field-appearance-outline ::ng-deep .mat-form-field-wrapper{*/
-/*  margin: 0px;*/
-/*}*/
 
-/*.mat-form-field-appearance-outline ::ng-deep .mat-form-field-infix {*/
-/*  padding: 4px;*/
-/*}*/
-
-.content{
+.content {
   display: flex;
   flex-direction: row;
-  position: relative;
-
-  justify-content: space-between;
   align-items: center;
-  width: 70vw;
-  /*height: 80vh;*/
-  height: fit-content;
-  z-index: 100;
-  background-color: rgba(187,175,222,0.3);
-  border-radius: 25px;
-  box-shadow: #394F93 0px 20px 30px -10px;
-  overflow: hidden;
+  justify-content: center;
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+
 }
+
 button{
   background-color: transparent;
 }
 
 .form-right{
   display: flex;
-  flex-grow: 1;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -76,25 +65,37 @@ button{
 }
 .form-left{
   display: flex;
-  /*width: 40%;*/
+  max-width: 80%;
   padding: 16px;
   width: 320px;
   height: fit-content;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(222,212,186,0.7);
+  background-color: rgba(187,175,222,0.7);
   box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
 }
-.example-container .mat-form-field + .mat-form-field {
-  margin-left: 8px;
-}
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 900px) {
   .content {
     flex-direction: column;
+    width: 90%;
+    padding: 8px;
+
   }
    .form-right, .form-left{
     width: 100%;
+
+  }
+
+  .form-right {
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+  }
+  .form-right img {
+    width: 90%;
+    opacity: 0.8;
+    height: auto;
   }
 
 }

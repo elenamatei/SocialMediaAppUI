@@ -1,54 +1,56 @@
 <div class="background"></div>
 <div class="container">
-<div class="content">
-  <div class="form-left">
-    <h1>Register</h1>
-    <mat-form-field appearance="outline" class="first-name register-field">
-      <mat-label>First Name</mat-label>
-      <input matInput placeholder="Your First Name">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="last-name register-field">
-      <mat-label>Last Name</mat-label>
-      <input matInput placeholder="Your Last Name">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="email register-field">
-      <mat-label>Enter your email</mat-label>
-      <input matInput placeholder="socialmedia@example.com" [formControl]="email" required>
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="password register-field">
-      <mat-label>Enter password</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="gender register-field">
-      <mat-label>Gender</mat-label>
-      <mat-select>
-        <mat-option value="one">Male</mat-option>
-        <mat-option value="two">Female</mat-option>
-        <mat-option value="two">None</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="example-full-width birth-date register-field" appearance="outline" >
-      <mat-label>Birth Date</mat-label>
-      <input matInput [matDatepicker]="picker">
-      <mat-datepicker-toggle matSuffix [for]="picker">
-        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-      </mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-    <button mat-raised-button color="primary">Create account</button>
-    <div class="redirect-login">
-      <!--        <a href="#" (click)="goToLogin()" > Login here! </a>-->
-      <a [routerLink]="['/login']">Login here!</a>
+  <div class="content">
+    <div class="form-left">
+      <h1>Register</h1>
+      <mat-form-field appearance="outline" class="first-name register-field">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Your First Name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="last-name register-field">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="Your Last Name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="email register-field">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="socialmedia@example.com" [formControl]="email" required>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="password register-field">
+        <mat-label>Enter password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="gender register-field">
+        <mat-label>Gender</mat-label>
+        <mat-select>
+          <mat-option value="one">Male</mat-option>
+          <mat-option value="two">Female</mat-option>
+          <mat-option value="two">None</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width birth-date register-field" appearance="outline" >
+        <mat-label>Birth Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button color="primary">Create account</button>
+      <div class="redirect-login">
+        <!--        <a href="#" (click)="goToLogin()" > Login here! </a>-->
+        <a [routerLink]="['/login']">Login here!</a>
+      </div>
     </div>
-</div>
-  <div class="form-right">
-    <img src="../../../assets/png3.png">
+
+    <div class="form-right">
+      <img src="../../../assets/png3.png">
+    </div>
   </div>
-</div>
+
 </div>
