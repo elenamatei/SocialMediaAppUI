@@ -45,6 +45,7 @@ h1 {
 
 .content {
   display: flex;
+  border-radius: 4px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -67,6 +68,7 @@ button{
   display: flex;
   max-width: 80%;
   padding: 16px;
+  border-radius: 4px 0px 0px 4px;
   width: 320px;
   height: fit-content;
   align-items: center;
@@ -79,12 +81,15 @@ button{
   .content {
     flex-direction: column;
     width: 90%;
-    padding: 8px;
+    padding: 0px 8px;
 
   }
    .form-right, .form-left{
     width: 100%;
+  }
 
+  .form-left{
+    border-radius: 0px;
   }
 
   .form-right {
