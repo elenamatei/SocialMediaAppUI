@@ -1,0 +1,168 @@
+.background{
+  background-image: url("src/assets/color-ge36d913ad_1920.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: -10;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.content {
+  /*display: flex;*/
+  /*border-radius: 4px;*/
+  /*flex-direction: row;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  /*box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;*/
+  /*display: flex;*/
+  justify-content: center;
+  height: 100%;
+  /*flex-direction: row;*/
+  /*height: 600px;*/
+  margin: 0;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  align-items: center;
+  justify-items: center;
+}
+.text{
+  background-color: rgb(218,202,219);
+  position: fixed;
+  /*color: white;*/
+  color:#3F51B5;
+  font-weight: bold;
+  font-size: larger;
+  font-family: Tahoma, Verdana, sans-serif;
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  /*-webkit-text-stroke: 1px #3F51B5;*/
+  bottom:20px;
+  z-index: 10;
+  height: 10%;
+  width: 300px;
+  text-align: center;
+}
+
+.carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+
+div.item {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  background-color: rgba(102,104,188,0.7);
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r)))
+  translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item:nth-of-type(1) {
+  --offset: 1;
+  background-color: rgba(102,104,188,0.7);
+  background-image: url("../../../assets/png3.png");
+  background-repeat: no-repeat;
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+}
+div.item:nth-of-type(2) {
+  --offset: 2;
+  background-color: rgba(102,104,188,0.7);
+  background-image: url("../../../assets/friends.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+}
+div.item:nth-of-type(3) {
+  --offset: 3;
+  background-color: rgba(102,104,188,0.7);
+  background-image: url("../../../assets/socialize.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+}
+div.item:nth-of-type(4) {
+  --offset: 4;
+  /*background-color: rgba(61,97,168,0.7);*/
+  background-color: rgba(102,104,188,0.7);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-image: url("../../../assets/keepintouch.png");
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+}
+div.item:nth-of-type(5) {
+  --offset: 5;
+  background-color: rgba(102,104,188,0.7);
+  background-image: url("../../../assets/heart.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+}
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(1):checked ~ .carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ .carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ .carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ .carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ .carousel {
+  --position: 5;
+}
