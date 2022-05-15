@@ -1,0 +1,68 @@
+.background{
+  background-image: url("src/assets/color-ge36d913ad_1920.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  z-index: -10;
+}
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /*overflow: hidden;*/
+
+}
+.cover-part {
+  position: fixed;
+  padding-top: 70px;
+  background-image: linear-gradient(purple, peachpuff);
+  /*background-position: top;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  /*border-style: solid;*/
+  /*border-color: purple;*/
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.main-part{
+  position: fixed;
+  background-color: floralwhite;
+  width: 90vw;
+  height:70vh;
+  bottom: 0;
+  /*border-top-left-radius: 40px;*/
+  /*border-top-right-radius: 40px;*/
+  padding: 20px;
+  z-index: 10;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 3px;
+  border-style: solid;
+  border-image:
+    linear-gradient(
+      to bottom,
+      purple,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+
+
+}
+
