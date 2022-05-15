@@ -14,6 +14,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { HomeComponent } from './pages/home/home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from "@angular/material/core";
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatNativeDateModule} from "@angular/material/core";
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

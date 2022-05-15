@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+// @ts-ignore
+import {LoginDTO} from "../../interfaces/login-dto";
+// @ts-ignore
+import {AuthService} from "../../services/AuthService";
 
 @Component({
   selector: 'app-login',
@@ -8,10 +12,20 @@ import {FormControl, Validators} from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  invalidLogin = false;
+  loginSuccess = false;
+
+  public user:LoginDTO = {
+    email:"",
+    password:""
+  }
+
+
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
+
   hide = true;
   email = new FormControl('', [Validators.required, Validators.email]);
 
@@ -22,4 +36,19 @@ export class LoginComponent implements OnInit {
 
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
+
+  handleLogin(){
+    this.authService.login(this.user.email, this.user.password).subscribe((result) =>{
+      this.invalidLogin = false;
+      this.invalidLogin = true;
+      } , () => {
+      this.invalidLogin = true;
+      this.loginSuccess = false;
+
+    });
+  }
+
+
+
+
 }
