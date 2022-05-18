@@ -67,7 +67,7 @@ button{
   color: transparent;
   font-weight: bold;
   font-size: 25px;
-  background: linear-gradient(to right,#3F51B5 10%, #25abe8 50%, #3F51B5 60%);
+  background: linear-gradient(to right,var(--dark-blue) 10%, var(--bright-blue) 50%, var(--dark-blue) 60%);
   background-size: auto auto;
   background-clip: border-box;
   background-size: 200% auto;
@@ -93,10 +93,10 @@ button{
 .text{
   background-color: rgb(218,202,219);
   position: fixed;
-  color:#3F51B5;
+  color:var(--dark-blue);
   font-weight: bold;
   font-size: larger;
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow:var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
   bottom:20px;
   z-index: 10;
   height: 10%;
@@ -125,7 +125,7 @@ div.item {
   position: absolute;
   width: 300px;
   height: 400px;
-  background-color: rgba(102,104,188,0.7);
+  background-color: var(--gray-mauve);
   --r: calc(var(--position) - var(--offset));
   --abs: max(calc(var(--r) * -1), var(--r));
   transition: all 0.25s linear;
@@ -136,44 +136,44 @@ div.item {
 
 div.item:nth-of-type(1) {
   --offset: 1;
-  background-color: rgba(102,104,188,0.7);
+  background-color: var(--gray-mauve);
   background-image: url("../../../assets/png3.png");
   background-repeat: no-repeat;
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 }
 div.item:nth-of-type(2) {
   --offset: 2;
-  background-color: rgba(102,104,188,0.7);
+  background-color: var(--gray-mauve);
   background-image: url("../../../assets/friends.png");
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 }
 div.item:nth-of-type(3) {
   --offset: 3;
-  background-color: rgba(102,104,188,0.7);
+  background-color: var(--gray-mauve);
   background-image: url("../../../assets/socialize.png");
   background-repeat: no-repeat;
   background-position: center;
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 }
 div.item:nth-of-type(4) {
   --offset: 4;
   /*background-color: rgba(61,97,168,0.7);*/
-  background-color: rgba(102,104,188,0.7);
+  background-color: var(--gray-mauve);
   background-position: bottom;
   background-repeat: no-repeat;
   background-image: url("../../../assets/keepintouch.png");
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 }
 div.item:nth-of-type(5) {
   --offset: 5;
-  background-color: rgba(102,104,188,0.7);
+  background-color: var(--gray-mauve);
   background-image: url("../../../assets/heart.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 }
 
 input:nth-of-type(1) {

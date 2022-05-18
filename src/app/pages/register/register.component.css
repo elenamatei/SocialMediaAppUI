@@ -12,7 +12,7 @@
 }
 
 * {
-  color: #3F51B5;
+  color: var(--semi-dark-blue);
   transition-duration: 0.2s;
 }
 
@@ -20,7 +20,7 @@ h1 {
   text-align: center;
   font-size: x-large;
   font-weight: bold;
-  color: #3F51B5;
+  color: var(--semi-dark-blue);
 }
 
 .form-right img {
@@ -49,7 +49,7 @@ h1 {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 
 }
 
@@ -73,8 +73,8 @@ button{
   height: fit-content;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(187,175,222,0.7);
-  box-shadow: #394F93 0px 19px 38px, #394F93 0px 15px 12px;
+  background-color: var(--grayish);
+  box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 }
 
 .round-button {

@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.user.email, this.user.password).subscribe((result) =>{
       this.invalidLogin = false;
       this.invalidLogin = true;
+      console.log("success");
       } , () => {
       this.invalidLogin = true;
       this.loginSuccess = false;

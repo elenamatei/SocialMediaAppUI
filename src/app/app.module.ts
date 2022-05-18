@@ -15,7 +15,10 @@ import { HomeComponent } from './pages/home/home.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from "@angular/material/core";
 import { ProfileComponent } from './pages/profile/profile.component';
-
+import {HttpClientModule} from "@angular/common/http";
+import { FeedComponent } from './pages/feed/feed.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    FeedComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,10 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatDatepickerModule,
     MatSelectModule,
     MatNativeDateModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    MatCardModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

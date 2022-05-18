@@ -4,3 +4,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+  --light-pink: rgb(217,199,220);
+  --dark-blue: #394F93;
+  --bright-blue: #25abe8;
+  --semi-dark-blue:#3F51B5;
+  --gray-mauve:rgba(102,104,188,0.7);
+  --grayish:rgba(187,175,222,0.7);
+}
