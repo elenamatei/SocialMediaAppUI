@@ -19,6 +19,10 @@ import {HttpClientModule} from "@angular/common/http";
 import { FeedComponent } from './pages/feed/feed.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatTabsModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
