@@ -23,6 +23,8 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { PetProfileComponent } from './pages/pet-profile/pet-profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     LoginComponent,
     HomeComponent,
     ProfileComponent,
-    FeedComponent
+    FeedComponent,
+    EditProfileComponent,
+    PetProfileComponent
   ],
   imports: [
     BrowserModule,
