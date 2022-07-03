@@ -7,6 +7,7 @@ import {ProfileComponent} from "./pages/profile/profile.component";
 import {FeedComponent} from "./pages/feed/feed.component";
 import {EditProfileComponent} from "./pages/edit-profile/edit-profile.component";
 import {PetProfileComponent} from "./pages/pet-profile/pet-profile.component";
+import {RegisterPetComponent} from "./pages/register-pet/register-pet.component";
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'profile', component:ProfileComponent},
   {path:'feed', component:FeedComponent},
   {path:'editProfile', component:EditProfileComponent},
-  {path:'petProfile', component:PetProfileComponent}
+  {path:'petProfile', component:PetProfileComponent},
+  {path:'registerPet', component:RegisterPetComponent}
 
 ];
 

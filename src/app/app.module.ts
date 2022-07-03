@@ -25,6 +25,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { PetProfileComponent } from './pages/pet-profile/pet-profile.component';
+import { RegisterPetComponent } from './pages/register-pet/register-pet.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { PetProfileComponent } from './pages/pet-profile/pet-profile.component';
     ProfileComponent,
     FeedComponent,
     EditProfileComponent,
-    PetProfileComponent
+    PetProfileComponent,
+    RegisterPetComponent
   ],
   imports: [
     BrowserModule,

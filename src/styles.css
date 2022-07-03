@@ -16,6 +16,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --bold-purple:#6944ff;
   --mauve-pink-tr: rgba(172,50,199,0.4);
   --profile-text-color:#324e63;
-  --sticky-note:rgb(95,158,160);
-  --sticky-note-corner:rgb(140,186,187) ;
+  --green-gray:rgb(95,158,160);
+  --green-gray-lighter:rgb(140,186,187);
+  --mint:#C1E1C1;
+  --mustard-color:rgba(189,162,121,1);
+  --light-fucsia:rgba(152,111,189,1);
+  --pet-profile-card:#A4CDA4;
 }
