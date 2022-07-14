@@ -8,7 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatSelectModule} from "@angular/material/select";
 import { HomeComponent } from './pages/home/home.component';
@@ -26,7 +26,9 @@ import {MatBadgeModule} from '@angular/material/badge';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { PetProfileComponent } from './pages/pet-profile/pet-profile.component';
 import { RegisterPetComponent } from './pages/register-pet/register-pet.component';
-
+import {MatRadioModule} from "@angular/material/radio";
+import {MatStepperModule} from '@angular/material/stepper';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { RegisterPetComponent } from './pages/register-pet/register-pet.componen
     FeedComponent,
     EditProfileComponent,
     PetProfileComponent,
-    RegisterPetComponent
+    RegisterPetComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,11 @@ import { RegisterPetComponent } from './pages/register-pet/register-pet.componen
     MatTabsModule,
     MatDividerModule,
     MatExpansionModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatRadioModule,
+    MatStepperModule,
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

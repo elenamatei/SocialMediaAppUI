@@ -10,84 +10,53 @@
   bottom: 0px;
   z-index: -10;
 }
-.container{
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  /*overflow: hidden;*/
-
-}
-.cont{
-  width: 60vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.cover-part {
-  display: flex;
-  flex-direction: row;
-
+.post-button {
   position: fixed;
-  padding-top: 70px;
-  background-image: linear-gradient(purple, peachpuff);
-  background-size: cover;
-  background-repeat: no-repeat;
-  /*border-bottom-left-radius: 40em;*/
-  /*border-bottom-right-radius: 40em;*/
-  justify-content: center;
-  align-items: center;
-  height: 25vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  z-index: 11;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-}
-.profile{
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  bottom: -3vh;
-  background-color: red;
-  border-radius: 15px;
-  border-width: 3px;
-  border-style: solid;
-  border-color: #394F93;
-}
-
-.main-part{
-  position: absolute;
-  background-color: floralwhite;
-  width: 60vw;
-  height: fit-content;
-  /*height:70vh;*/
-  /*overflow-y: auto;*/
-  top: 19vh;
-  bottom: 0;
-  padding: 20px;
-  z-index: 10;
-  margin: auto;
-  border-width: 3px;
-  border-style: solid;
-  border-image:
-    linear-gradient(
-      to bottom,
-      purple,
-      rgba(0, 0, 0, 0)
-    ) 1 100%;
-
-
-}
-@media screen and (max-width: 900px) {
-  .profile{
-    width: 100px;
-    height: 100px;
-  }
-
+  bottom: 2em;
+  right: 2em;
+  background-color: var(--gray-mauve);
+  color: white;
 
 }
 
+.settings-button{
+  position: fixed;
+  bottom: 2em;
+  left: 2em;
+  background-color: var(--gray-mauve);
+  color: white;
+}
+
+
+/*.redirect-pet{*/
+/*  position: fixed;*/
+/*  bottom: 2em;*/
+/*  left: 2em;*/
+/*  background-color: var(--gray-mauve);*/
+/*  color: white;*/
+
+/*}*/
+/*.edit-profile{*/
+/*  position: fixed;*/
+/*  bottom: 2em;*/
+/*  left: 2em;*/
+/*  background-color: var(--gray-mauve);*/
+/*  color: white;*/
+
+/*}*/
+#post-feed{
+  max-width: 500px;
+  margin-top: 5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logo{
+  position: fixed;
+}
+.logo img{
+  position: fixed;
+  top: 32px;
+  left: 32px;
+  width: 12em;
+  height: 4em;
+}

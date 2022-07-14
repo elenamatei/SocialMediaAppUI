@@ -1,5 +1,8 @@
 <div class="background">
 
+  <div class="logo">
+    <a [routerLink]="['/feed']"> <img src="../../../assets/logo-lightbg.png"></a>
+  </div>
     <div class="pet-card">
 
       <div class="pet-profile-image">
@@ -8,6 +11,9 @@
       </div>
 
       <div class="content">
+        <div class="edit-profile" matTooltip="Edit profile" >
+          <a [routerLink]="['/editProfile']"> <mat-icon>edit</mat-icon></a>
+        </div>
 
 
         <div class="name">Molly <i class="fa-solid fa-paw"></i> </div>
@@ -23,6 +29,16 @@
           <div class="grouped-item">
             <div class="grouped-item-description">European shorthair</div>
             <div class="grouped-item-title">Breed</div>
+          </div>
+
+          <div class="grouped-item">
+            <div class="grouped-item-description">Tiger</div>
+            <div class="grouped-item-title">Color <!--<i class="fa-solid fa-palette"></i>--></div>
+          </div>
+
+          <div class="grouped-item">
+            <div class="grouped-item-description">Yes</div>
+            <div class="grouped-item-title">Neutered</div>
           </div>
 
           <div class="grouped-item">
@@ -68,6 +84,7 @@
           </div>
           </div>
         </div>
+
 
       </div>
 

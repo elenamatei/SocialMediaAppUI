@@ -1,5 +1,8 @@
 <div class="background"></div>
 <div class="container">
+  <div class="logo">
+    <img src="../../../assets/logo-lightbg.png">
+  </div>
   <div class="content">
     <div class="form-left">
       <img src="../../../assets/png6.png">
@@ -8,12 +11,12 @@
       <h1>Login</h1>
       <mat-form-field appearance="outline" class="email login-field">
         <mat-label>Enter your email</mat-label>
-        <input matInput placeholder="socialmedia@example.com" [formControl]="email" required>
-        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>
+        <input matInput placeholder="socialmedia@example.com" [(ngModel)]="email"  required>
+<!--        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
       </mat-form-field>
       <mat-form-field appearance="outline" class="password login-field">
         <mat-label>Enter password</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
+        <input matInput [(ngModel)]="password" [type]="hide ? 'password' : 'text'" >
         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
@@ -21,7 +24,7 @@
 
       <div class="action-buttons">
         <button (click)="handleLogin()" class="round-button" mat-raised-button  color="primary">Login</button>
-        <button class="round-button" mat-raised-button color="accent" >Don't have an account?</button>
+        <a [routerLink]="['/register']"><button  class="round-button" mat-raised-button color="accent" >Don't have an account?</button></a>
         <!-- <button (click)="goToRegister()" > Login here! </button> -->
       </div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
+import axios from "axios";
 //import {Router} from "@angular/router";
 
 @Component({
@@ -15,19 +16,38 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
 
-  getEmailErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  firstName: String;
+  lastName: String;
+  email: String;
+  password: String;
+  gender: String;
+  birthDate: Date;
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  async handleRegister(){
+    let resultAxios =await axios.post('http://localhost:4200/api/register',
+      {
+        "firstName":this.firstName,
+        "lastName": this.lastName,
+        "email":this.email,
+        "password":this.password,
+        "gender":this.gender,
+        "birthDate":this.birthDate
+      },
+      {
+        headers: { 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': '*/*'}
+
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
+
+
+
   }
 
-  // goToLogin() {
-  //  //nu prea merge
-  //   this.router.navigate(['/login']);
-  // }
+
 
 }

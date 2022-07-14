@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from "axios";
 
 @Component({
   selector: 'app-register-pet',
@@ -7,9 +8,81 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterPetComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
   }
+  selectedProfilePhoto: File;
+  name: String;
+  type: String;
+  race: String;
+  color: String;
+  birthDate: Date;
+  gender: String;
+  favouriteFood: String;
+  description: String;
+  isNeutered: String;
+
+
+  onPhotoSelected(photoselector:HTMLInputElement){
+
+    // @ts-ignore
+    this.selectedProfilePhoto = photoselector.files[0];
+    const imageFormData = new FormData();
+    imageFormData.append('image', this.selectedProfilePhoto, this.selectedProfilePhoto.name);
+
+    console.log(imageFormData);
+
+    // // @ts-ignore
+    // this.selectedProfilePhoto = photoselector.files[0];
+    // if(!this.selectedProfilePhoto) return;
+    // let fileReader = new FileReader();
+    // fileReader.readAsDataURL(this.selectedProfilePhoto);
+    // console.log(fileReader);
+    // fileReader.addEventListener(
+    //   "loadend",
+    //   ev => {
+    //     // @ts-ignore
+    //     let readableString = fileReader.result.toString();
+    //     let postPreviewImage = <HTMLImageElement>document.getElementById("post-preview-image");
+    //     postPreviewImage.src = readableString;
+    //
+    //   }
+    // )
+
+  }
+
+
+
+  async handlePetRegister(){
+    let resultAxios =await axios.post('http://localhost:4200/api/register',
+      {
+        "name":this.name,
+        "type": this.type,
+        "race":this.race,
+        "color":this.color,
+        "birthDate":this.birthDate,
+        "gender":this.gender,
+        "favouriteFood": this.favouriteFood,
+        "description": this.description,
+        "isNeutered": this.isNeutered
+      },
+      {
+        headers: { 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': '*/*'}
+
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
+
+
+
+  }
+
+
+
 
 }

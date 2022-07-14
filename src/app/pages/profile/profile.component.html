@@ -1,4 +1,7 @@
 <div class="background">
+  <div class="logo">
+   <a [routerLink]="['/feed']"> <img src="../../../assets/logo-lightbg.png"></a>
+  </div>
   <div class="profile-card">
     <div class="profile-image">
       <img src="../../../assets/molly.jpg" >
@@ -6,7 +9,7 @@
 
     <div class="content">
 
-      <div class="edit-profile" aria-label="Edit profiles">
+      <div class="edit-profile" matTooltip="Edit profile" >
         <a [routerLink]="['/editProfile']"> <mat-icon>edit</mat-icon></a>
       </div>
 
@@ -79,7 +82,7 @@
 
       <div class="buttons">
 
-        <button class="round-button js-message-btn message-button"  mat-raised-button  color="primary"><mat-icon> message</mat-icon>Message</button>
+        <button class="round-button  message-button"  mat-raised-button  color="primary"><mat-icon> message</mat-icon>Message</button>
         <a [routerLink]="['/petProfile']"> <button  class="round-button pets-button" mat-raised-button color="accent" > <mat-icon>pets</mat-icon> Pets Profiles  </button></a>
       </div>
     </div>

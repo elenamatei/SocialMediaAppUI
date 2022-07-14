@@ -38,7 +38,7 @@
       </div>
       <div class="item">
         <div class="text">
-            Show us your pets also!
+            Show us your pets!
         </div>
       </div>
     </div>
@@ -50,9 +50,10 @@
       Enjoy this new social media app
     </div>
     <div class="actions">
-      <button class="round-button" id="register" mat-raised-button  color="primary">Create new account</button>
-      <button  class="round-button" id="login" mat-raised-button color="accent" > Already an user  </button>
+     <a [routerLink]="['/register']"><button class="round-button" id="register" mat-raised-button  color="primary">Create new account</button></a>
+      <a [routerLink]="['/login']">  <button  class="round-button" id="login" mat-raised-button color="accent" > Already an user  </button></a>
     </div>
+
   </div>
 
 </div>

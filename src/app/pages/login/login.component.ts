@@ -4,6 +4,7 @@ import {FormControl, Validators} from "@angular/forms";
 import {LoginDTO} from "../../interfaces/login-dto";
 // @ts-ignore
 import {AuthService} from "../../services/AuthService";
+import axios from "axios";
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,7 @@ import {AuthService} from "../../services/AuthService";
 })
 export class LoginComponent implements OnInit {
 
-  invalidLogin = false;
   loginSuccess = false;
-
-  public user:LoginDTO = {
-    email:"",
-    password:""
-  }
 
 
   constructor(private authService:AuthService) { }
@@ -26,27 +21,35 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  email: String ;
+  password: String ;
   hide = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
 
-  getEmailErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  async handleLogin(){
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
+      console.log(this.email);
 
-  handleLogin(){
-    this.authService.login(this.user.email, this.user.password).subscribe((result) =>{
-      this.invalidLogin = false;
-      this.invalidLogin = true;
-      console.log("success");
-      } , () => {
-      this.invalidLogin = true;
-      this.loginSuccess = false;
 
-    });
+
+    let resultAxios =await axios.post('http://localhost:4200/api/login',
+      {
+        "email":this.email,
+        "password":this.password
+      },
+      {
+        headers: { 'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*',
+        'Accept': '*/*'}
+
+      })
+      .then((response) => {
+        console.log(response.data);
+      });
+
+
+
+
+
   }
 
 
