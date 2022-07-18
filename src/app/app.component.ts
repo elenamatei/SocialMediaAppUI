@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SocialMediaAppUI';
+  baseUrl = 'http://localhost:4200/';
 }
 

@@ -29,6 +29,7 @@ import { RegisterPetComponent } from './pages/register-pet/register-pet.componen
 import {MatRadioModule} from "@angular/material/radio";
 import {MatStepperModule} from '@angular/material/stepper';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { PostComponent } from './components/post/post.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     EditProfileComponent,
     PetProfileComponent,
     RegisterPetComponent,
-    NavBarComponent
+    NavBarComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

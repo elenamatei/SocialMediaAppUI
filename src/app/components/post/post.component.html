@@ -1,0 +1,20 @@
+<div class="post-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Molly</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="../../../assets/molly.jpg">
+    <mat-card-content>
+      This is my first post!
+    </mat-card-content>
+    <mat-card-actions>
+<!--      <mat-icon class="action-item-fav action" *ngIf="!postData.liked" (click)="onHeartClick()" >favorite_border</mat-icon>-->
+      <mat-icon class="action-item-fav action">favorite_border</mat-icon>
+<!--      <mat-icon class="clicked action" *ngIf="postData.liked" (click)="onHeartClick()">favorite</mat-icon>-->
+      <mat-icon class="clicked action" >favorite</mat-icon>
+<!--      <mat-icon class="action-item-rep action" (click)="onReplyClick()">chat_bubble_outline</mat-icon>-->
+      <mat-icon class="action-item-rep action">chat_bubble_outline</mat-icon>
+      <mat-icon class="action-item-save action">save</mat-icon>
+    </mat-card-actions>
+  </mat-card>
+</div>

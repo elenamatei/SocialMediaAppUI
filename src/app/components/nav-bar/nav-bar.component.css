@@ -5,3 +5,19 @@ nav{
 *{
   color: white;
 }
+
+/*.collapse:not(.show) {*/
+/*  display: flex;*/
+/*}*/
+.showMenu{
+  display: block;
+  /*transition-duration: 2s;*/
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+}
+.nav-link {
+  display: block;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}

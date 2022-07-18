@@ -13,37 +13,11 @@
 .post-button {
   position: fixed;
   bottom: 2em;
-  right: 2em;
-  background-color: var(--gray-mauve);
-  color: white;
-
-}
-
-.settings-button{
-  position: fixed;
-  bottom: 2em;
-  left: 2em;
+  right: 1.5em;
   background-color: var(--gray-mauve);
   color: white;
 }
 
-
-/*.redirect-pet{*/
-/*  position: fixed;*/
-/*  bottom: 2em;*/
-/*  left: 2em;*/
-/*  background-color: var(--gray-mauve);*/
-/*  color: white;*/
-
-/*}*/
-/*.edit-profile{*/
-/*  position: fixed;*/
-/*  bottom: 2em;*/
-/*  left: 2em;*/
-/*  background-color: var(--gray-mauve);*/
-/*  color: white;*/
-
-/*}*/
 #post-feed{
   max-width: 500px;
   margin-top: 5em;

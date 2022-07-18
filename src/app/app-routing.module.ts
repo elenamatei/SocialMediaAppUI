@@ -8,6 +8,7 @@ import {FeedComponent} from "./pages/feed/feed.component";
 import {EditProfileComponent} from "./pages/edit-profile/edit-profile.component";
 import {PetProfileComponent} from "./pages/pet-profile/pet-profile.component";
 import {RegisterPetComponent} from "./pages/register-pet/register-pet.component";
+import {PostComponent} from "./components/post/post.component";
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},

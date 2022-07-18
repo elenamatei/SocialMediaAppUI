@@ -12,4 +12,11 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showToast: boolean = false;
+
+  showCollapse(){
+    console.log("a intrat");
+    this.showToast = !this.showToast;
+    console.log(this.showToast);
+  }
 }

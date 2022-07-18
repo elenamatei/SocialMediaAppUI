@@ -14,6 +14,7 @@ export class RegisterPetComponent implements OnInit {
   ngOnInit(): void {
   }
   selectedProfilePhoto: File;
+  selectedPhotoString : String;
   name: String;
   type: String;
   race: String;
@@ -26,37 +27,41 @@ export class RegisterPetComponent implements OnInit {
 
 
   onPhotoSelected(photoselector:HTMLInputElement){
+    //
+    // // @ts-ignore
+    // this.selectedProfilePhoto = photoselector.files[0];
+    // console.log(this.selectedProfilePhoto)
+    // const imageFormData = new FormData();
+    // imageFormData.append('image', this.selectedProfilePhoto, this.selectedProfilePhoto.name);
+    //
+    // console.log(imageFormData);
 
     // @ts-ignore
     this.selectedProfilePhoto = photoselector.files[0];
-    const imageFormData = new FormData();
-    imageFormData.append('image', this.selectedProfilePhoto, this.selectedProfilePhoto.name);
-
-    console.log(imageFormData);
-
-    // // @ts-ignore
-    // this.selectedProfilePhoto = photoselector.files[0];
-    // if(!this.selectedProfilePhoto) return;
-    // let fileReader = new FileReader();
-    // fileReader.readAsDataURL(this.selectedProfilePhoto);
+    if(!this.selectedProfilePhoto) return;
+    let fileReader = new FileReader();
+    fileReader.readAsDataURL(this.selectedProfilePhoto);
     // console.log(fileReader);
-    // fileReader.addEventListener(
-    //   "loadend",
-    //   ev => {
-    //     // @ts-ignore
-    //     let readableString = fileReader.result.toString();
-    //     let postPreviewImage = <HTMLImageElement>document.getElementById("post-preview-image");
-    //     postPreviewImage.src = readableString;
-    //
-    //   }
-    // )
+    fileReader.addEventListener(
+      "loadend",
+      ev => {
+        // @ts-ignore
+        let readableString = fileReader.result.toString();
+        let postPreviewImage = <HTMLImageElement>document.getElementById("post-preview-image");
+        postPreviewImage.src = readableString;
+        this.selectedPhotoString = readableString;
+        console.log(readableString)
+
+
+      }
+    )
 
   }
 
 
 
   async handlePetRegister(){
-    let resultAxios =await axios.post('http://localhost:4200/api/register',
+    let resultAxios =await axios.post('http://localhost:4200/api/registerPet',
       {
         "name":this.name,
         "type": this.type,
@@ -66,7 +71,9 @@ export class RegisterPetComponent implements OnInit {
         "gender":this.gender,
         "favouriteFood": this.favouriteFood,
         "description": this.description,
-        "isNeutered": this.isNeutered
+        "isNeutered": this.isNeutered,
+        "picture":this.selectedPhotoString,
+        "token":"5b09ca5bcb81de218f045b2077f653b6"
       },
       {
         headers: { 'Content-Type': 'application/json',
