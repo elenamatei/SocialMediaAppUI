@@ -30,6 +30,11 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatStepperModule} from '@angular/material/stepper';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { PostComponent } from './components/post/post.component';
+import { MyPetsListCardComponent } from './components/my-pets-list-card/my-pets-list-card.component';
+import { MyPetsPageComponent } from './pages/my-pets-page/my-pets-page.component';
+import { AllUsersComponent } from './pages/all-users/all-users.component';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +47,11 @@ import { PostComponent } from './components/post/post.component';
     PetProfileComponent,
     RegisterPetComponent,
     NavBarComponent,
-    PostComponent
+    PostComponent,
+    MyPetsListCardComponent,
+    MyPetsPageComponent,
+    AllUsersComponent,
+    ProfileCardComponent
   ],
   imports: [
     BrowserModule,

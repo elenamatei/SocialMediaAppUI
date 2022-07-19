@@ -12,11 +12,37 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   showToast: boolean = false;
+  dropIsVisible:boolean = false;
 
   showCollapse(){
-    console.log("a intrat");
+
     this.showToast = !this.showToast;
     console.log(this.showToast);
   }
+
+  showDrop(){
+    this.dropIsVisible = !this.dropIsVisible;
+  }
+
+
+   // dropdown = document.getElementsByClassName('dropdown-menu');
+   // clicked = document.getElementsByClassName('clicked');
+   // showDrop = !showDrop;
+   //
+   //  if(this.showDrop == false){
+   //    btn.addEventListener('click', function  showDropdown() {
+   //      if (dropdown.style.display === 'none') {
+   //        el.style.display = 'block';
+   //      } else {
+   //
+   //        el.style.display = 'none';
+   //
+   //      }
+   //    });
+   //
+   //  }
+
+
 }

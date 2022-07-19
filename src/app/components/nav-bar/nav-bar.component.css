@@ -1,14 +1,22 @@
 nav{
-  background-color: var(--gray-mauve);
+  background-color: var(--gray-mauve-opaque);
+  /*position: sticky;*/
 
 }
 *{
-  color: white;
+  color: var(--light-pink);
+  font-size: 16px;
+  /*font-weight: 500;*/
+
 }
 
-/*.collapse:not(.show) {*/
-/*  display: flex;*/
-/*}*/
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+  color: var(--light-pink);
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--light-pink);
+}
+
 .showMenu{
   display: block;
   /*transition-duration: 2s;*/
@@ -21,3 +29,10 @@ nav{
   text-decoration: none;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
 }
+.dropdown-menu {
+
+  background-color: var(--gray-mauve-opaque);
+  margin: 0px;
+
+}
+

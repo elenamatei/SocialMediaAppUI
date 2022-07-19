@@ -8,7 +8,10 @@ import {FeedComponent} from "./pages/feed/feed.component";
 import {EditProfileComponent} from "./pages/edit-profile/edit-profile.component";
 import {PetProfileComponent} from "./pages/pet-profile/pet-profile.component";
 import {RegisterPetComponent} from "./pages/register-pet/register-pet.component";
-import {PostComponent} from "./components/post/post.component";
+import {MyPetsPageComponent} from "./pages/my-pets-page/my-pets-page.component";
+import {MyPetsListCardComponent} from "./components/my-pets-list-card/my-pets-list-card.component";
+import {AllUsersComponent} from "./pages/all-users/all-users.component";
+import {ProfileCardComponent} from "./components/profile-card/profile-card.component";
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
@@ -19,7 +22,12 @@ const routes: Routes = [
   {path:'feed', component:FeedComponent},
   {path:'editProfile', component:EditProfileComponent},
   {path:'petProfile', component:PetProfileComponent},
-  {path:'registerPet', component:RegisterPetComponent}
+  {path:'registerPet', component:RegisterPetComponent},
+  {path:'myPets', component:MyPetsPageComponent},
+  {path:'myPetsCard', component:MyPetsListCardComponent},
+  {path:'allUsers', component:AllUsersComponent},
+  {path:'profileCard', component:ProfileCardComponent}
+
 
 ];
 
