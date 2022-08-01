@@ -1,6 +1,6 @@
 .background{
-  background: linear-gradient(107deg, var(--light-fucsia) 0%, var(--mustard-color) 29%, var(--mint) 100%);
-  background-repeat: no-repeat;
+ /*background: linear-gradient(107deg, var(--light-fucsia) 0%, var(--mustard-color) 29%, var(--mint) 100%) no-repeat;*/
+  background: linear-gradient(#9896F0,#FBC8D5);
   background-size: 100% 100%;
   width: 100vw;
   height: 100vh;
@@ -25,16 +25,15 @@
   width: 100%;
   min-height: 460px;
   margin: auto;
-  box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
-  /*background: var(--pet-profile-card);*/
-  background: transparent;
-  border: 2px solid var(--gray-mauve);
-  border-radius: 12px;
+  background: linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0));
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 8px 32px 0 var(--dark-blue);
+  border-radius: 4px;
   max-width: 700px;
   position: relative;
-  /*border: 30px solid transparent;*/
-  /*padding: 15px;*/
-  /*border-image: url("src/assets/pwas-border.png") 100% round;*/
+
 }
 .pet-profile-image{
   width: 150px;
@@ -127,6 +126,19 @@
 
 i{
   color: yellow;
+}
+
+.feed-button {
+  position: fixed;
+  bottom: 2em;
+  left: 1.5em;
+  background-color: var(--gray-mauve);
+  color: white;
+  z-index: 100;
+}
+.feed-button i{
+  font-size:25px;
+  color: white;
 }
 
 .general-details i{

@@ -25,4 +25,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --light-fucsia:rgba(152,111,189,1);
   --pet-profile-card:#A4CDA4;
   --dark-gray:#414141;
+  --bold-pink-accent: rgb(255,64,129);
 }

@@ -1,7 +1,9 @@
 nav{
   background-color: var(--gray-mauve-opaque);
-  /*position: sticky;*/
-
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
 }
 *{
   color: var(--light-pink);
@@ -15,6 +17,8 @@ nav{
 }
 .navbar-dark .navbar-nav .nav-link {
   color: var(--light-pink);
+  padding: 8px;
+  padding-bottom: 0;
 }
 
 .showMenu{

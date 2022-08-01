@@ -1,6 +1,5 @@
 .background{
-  background-image: url("src/assets/color-ge36d913ad_1920.png");
-  background-repeat: no-repeat;
+  background: linear-gradient(#9896F0,#FBC8D5);
   background-size: 100% 100%;
   width: 100vw;
   height: 100vh;
@@ -59,10 +58,11 @@
   height: auto;
 }
 
-.text-users{
-  font-size: 24px;
+.text-adoptions{
+  font-size: 21px;
   font-weight: 600;
-  color: var(--light-pink);
+  color: var(--bold-purple);
+  padding-right: 1em;
 }
 
 @media screen and (max-width: 576px){
@@ -70,4 +70,17 @@
     width: 150px;
   }
 
+}
+
+.add-adoption {
+  position: fixed;
+  bottom: 2em;
+  left: 1.5em;
+  background-color: var(--gray-mauve);
+  color: white;
+  z-index: 100;
+}
+.add-adoption i{
+  font-size:25px;
+  color: white;
 }

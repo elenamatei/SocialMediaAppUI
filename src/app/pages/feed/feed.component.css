@@ -18,6 +18,21 @@
   color: white;
 }
 
+
+.pet-button {
+  position: fixed;
+  bottom: 2em;
+  left: 1.5em;
+  background-color: var(--gray-mauve);
+  color: white;
+  z-index: 100;
+}
+.pet-button i{
+  font-size:25px;
+  color: white;
+}
+
+
 #post-feed{
   max-width: 500px;
   margin-top: 5em;

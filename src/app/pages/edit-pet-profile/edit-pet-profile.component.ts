@@ -1,21 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-edit-profile',
-  templateUrl: './edit-profile.component.html',
-  styleUrls: ['./edit-profile.component.css']
+  selector: 'app-edit-pet-profile',
+  templateUrl: './edit-pet-profile.component.html',
+  styleUrls: ['./edit-pet-profile.component.css']
 })
-export class EditProfileComponent implements OnInit {
+export class EditPetProfileComponent implements OnInit {
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  hide = true;
 
   selectedProfilePhoto: File;
   selectedPhotoString : String;
+  name: String;
+  type: String;
+  race: String;
+  color: String;
+  birthDate: Date;
+  gender: String;
+  favouriteFood: String;
+  description: String;
+  isNeutered: String;
 
   onPhotoSelected(photoselector:HTMLInputElement){
 

@@ -73,7 +73,8 @@ export class RegisterPetComponent implements OnInit {
         "description": this.description,
         "isNeutered": this.isNeutered,
         "picture":this.selectedPhotoString,
-        "token":"5b09ca5bcb81de218f045b2077f653b6"
+        "token":"1b1f7616764584eb399acc2ef6a595dd"
+
       },
       {
         headers: { 'Content-Type': 'application/json',

@@ -1,0 +1,78 @@
+
+<div class="background" [ngClass]="{'active': show, 'idle': !show}" ></div>
+<div class="container">
+
+  <div class="logo">
+    <img src="../../../assets/logo-lightbg.png">
+  </div>
+
+  <div class="profile-content">
+
+    <div class="directions "><i class="fa-solid fa-users"></i>  To complete your profile creation,tell us something about you and let your new friends know what do you like! </div>
+
+    <div class="fields">
+
+
+      <mat-form-field appearance="outline" class="pet-name register-field">
+        <mat-label>Birth Place <i class="fa-solid fa-house"></i></mat-label>
+        <input class="input-new" [(ngModel)]="birthPlace"  matInput placeholder="Where are you bord?">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="pet-type register-field">
+        <mat-label>Living City <i class="fa-solid fa-location-dot"></i></mat-label>
+        <input class="input-new" [(ngModel)]="livingCity" matInput placeholder="Where are you living?">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="pet-breed register-field">
+        <mat-label>Occupation <i class="fa-solid fa-briefcase"></i></mat-label>
+        <input class="input-new" [(ngModel)]="occupation"  matInput placeholder="What are you working?">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="pet-color register-field">
+        <mat-label>Work Place <i class="fa-solid fa-building-user"></i></mat-label>
+        <input class="input-new" [(ngModel)]="workPlace" matInput placeholder="Where are you working?">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="pet-color register-field">
+        <mat-label>Studies <i class="fa-solid fa-graduation-cap"></i></mat-label>
+        <input class="input-new" [(ngModel)]="studies" matInput placeholder="Where have you studied?">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width register-field" appearance="outline">
+        <mat-label>Description</mat-label>
+        <input class="input-new" [(ngModel)]="description"  matInput #message maxlength="256" placeholder="My pet likes to eat carrots.">
+        <mat-hint align="start"><strong>Describe yourself!</strong> </mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+      </mat-form-field>
+
+      <div class="profile-image register-field">
+        <span>Select profile photo <i class="fa-solid fa-circle-user"></i></span>
+        <div *ngIf="selectedProfilePhoto" id="post-preview">
+          <img id="post-preview-image"/>
+        </div>
+        <button mat-button color="warn">
+          <label for="photo-upload">
+            <input class="input-new" #photoSelector (change)="onPhotoSelected(photoSelector)"
+                   id="photo-upload" type="file" accept="image/*"/>
+            <mat-icon>insert_photo</mat-icon>
+          </label>
+        </button>
+      </div>
+
+      <div class="action-buttons">
+        <button (click)="handleAddDetails()"  class="round-button" mat-raised-button color="accent" > Enjoy our app!</button>
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+

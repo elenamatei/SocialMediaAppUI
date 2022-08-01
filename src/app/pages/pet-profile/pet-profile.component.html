@@ -3,16 +3,23 @@
   <div class="logo">
     <a [routerLink]="['/feed']"> <img src="../../../assets/logo-lightbg.png"></a>
   </div>
-    <div class="pet-card">
+
+  <button  [routerLink]="['/feed']" mat-fab color="warn" class="feed-button" matTooltip="Go to feed"><i class="fa-solid fa-table-columns"></i></button>
+
+
+  <div class="pet-card">
 
       <div class="pet-profile-image">
         <img src="../../../assets/molly.jpg" >
 
       </div>
 
+
       <div class="content">
+
+
         <div class="edit-profile" matTooltip="Edit profile" >
-          <a [routerLink]="['/editProfile']"> <mat-icon>edit</mat-icon></a>
+          <a [routerLink]="['/editPetProfile']"> <mat-icon>edit</mat-icon></a>
         </div>
 
 

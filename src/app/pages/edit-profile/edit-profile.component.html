@@ -1,1 +1,119 @@
-<p>edit-profile works!</p>
+<div class="background"></div>
+<app-nav-bar></app-nav-bar>
+<div class="container">
+
+  <div class="content d-flex flex-column align-content-center justify-content-start ">
+
+    <div class="profile-image">
+      <img src="../../../assets/molly.jpg" >
+    </div>
+
+    <div class="change-photo">
+        <button  class="round-button-pic" id="login" mat-raised-button color="accent" > Change picture  </button>
+    </div>
+
+    <div class="boxes mt-2 ">
+      <div class="shadows">
+        <div class="shadow1"></div>
+        <div class="shadow2"></div>
+      </div>
+      <div class="edit-fields">
+
+        <mat-form-field appearance="outline" class="first-name register-field">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Your First Name">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="last-name register-field">
+          <mat-label>Last Name</mat-label>
+          <input  matInput placeholder="Your Last Name">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="email register-field">
+          <mat-label>Email</mat-label>
+          <input matInput  placeholder="socialmedia@example.com"  required>
+          <!--        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="password register-field">
+          <mat-label>Enter password</mat-label>
+          <input matInput  [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="gender register-field">
+          <mat-label>Gender</mat-label>
+          <mat-select >
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+            <mat-option value="None">None</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width birth-date register-field" appearance="outline" >
+          <mat-label>Birth Date</mat-label>
+          <input  matInput [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <mat-form-field appearance="outline" class="pet-name register-field">
+          <mat-label>Birth Place <i class="fa-solid fa-house"></i></mat-label>
+          <input class="input-new"  matInput placeholder="Where are you bord?">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-type register-field">
+          <mat-label>Living City <i class="fa-solid fa-location-dot"></i></mat-label>
+          <input class="input-new"  matInput placeholder="Where are you living?">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-breed register-field">
+          <mat-label>Occupation <i class="fa-solid fa-briefcase"></i></mat-label>
+          <input class="input-new"  matInput placeholder="What are you working?">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-color register-field">
+          <mat-label>Work Place <i class="fa-solid fa-building-user"></i></mat-label>
+          <input class="input-new" matInput placeholder="Where are you working?">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-color register-field">
+          <mat-label>Studies <i class="fa-solid fa-graduation-cap"></i></mat-label>
+          <input class="input-new" matInput placeholder="Where have you studied?">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width register-field" appearance="outline">
+          <mat-label>Description</mat-label>
+          <input class="input-new"   matInput #message maxlength="256" placeholder="My pet likes to eat carrots.">
+          <mat-hint align="start"><strong>Describe yourself!</strong> </mat-hint>
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <div class="action-buttons">
+          <button   class="round-button" mat-raised-button color="accent" > Update profile </button>
+        </div>
+
+    </div>
+
+
+
+  </div>
+
+
+</div>
+
+  <div class="bottom">                     </div>
+</div>
+

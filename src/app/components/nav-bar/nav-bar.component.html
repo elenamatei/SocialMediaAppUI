@@ -10,7 +10,7 @@
       <div class="navbar-nav">
         <a class="nav-link active"[routerLink]="['/profile']">Profile <i class="fa-solid fa-user"></i></a>
         <a class="nav-link active" [routerLink]="['/myPets']" >Pets <i class="fa-solid fa-paw"></i></a>
-        <a class="nav-link active">Adoptions <i class="fa-solid fa-paw"></i></a>
+        <a class="nav-link active" [routerLink]="['/adoptions']">Adoptions <i class="fa-solid fa-paw"></i></a>
         <a class="nav-link active" [routerLink]="['/allUsers']">Users <i class="fa-solid fa-user"></i></a>
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle clicked" (click)="showDrop()"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
@@ -18,7 +18,7 @@
           </a>
           <ul class="dropdown-menu" [style.display]="dropIsVisible ? 'block' : 'none'" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="nav-link active" [routerLink]="['/editProfile']">Edit Profile</a></li>
-            <li><a class="nav-link active">Edit Pets Profiles</a></li>
+            <li><a class="nav-link active" [routerLink]="['/myPets']">Edit Pets Profiles</a></li>
           </ul>
         </div>
 

@@ -1,6 +1,5 @@
 .background{
-  background-image: url("src/assets/color-ge36d913ad_1920.png");
-  background-repeat: no-repeat;
+  background: linear-gradient(107deg, var(--light-fucsia) 0%, var(--mustard-color) 29%, var(--mint) 100%) no-repeat;
   background-size: 100% 100%;
   width: 100vw;
   height: 100vh;
@@ -119,6 +118,7 @@ mat-form-field{
     width: 80%;
     padding: 6px;
   }
+
 }
 .profile-image img {
   display: block;
@@ -151,4 +151,28 @@ mat-form-field{
 .bottom{
   width:80vw;
   height: 100px;
+}
+.neutered-radio{
+  justify-content: center;
+  padding: 30px;
+}
+@media screen and (max-width: 576px) {
+
+  .neutered-radio{
+    padding: 10px;
+  }
+}
+
+.gif{
+  top: 7em;
+  right: 40em;
+  height: 200px;
+  width: auto;
+  position: absolute;
+}
+
+@media screen and (max-width: 576px) {
+  .gif{
+    display: none;
+  }
 }

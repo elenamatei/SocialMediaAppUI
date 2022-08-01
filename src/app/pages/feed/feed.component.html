@@ -2,13 +2,24 @@
 <app-nav-bar></app-nav-bar>
   <div id="post-feed">
 
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+    <app-post></app-post>
+
 
     <!-- reusable component "post" -->
 <!--    <app-post *ngFor="let post of posts" [postData]="post"></app-post>-->
   </div>
 
-  <button mat-fab color="warn" class="post-button" matTooltip="New post"><mat-icon>add</mat-icon></button>
-
+  <button  (click)="onCreatePostClick()" mat-fab color="warn" class="post-button" matTooltip="New post"><mat-icon>add</mat-icon></button>
+  <button  [routerLink]="['/registerPet']" mat-fab color="warn" class="pet-button" matTooltip="Add pet"><i class="fa-solid fa-paw"></i></button>
 
 
 

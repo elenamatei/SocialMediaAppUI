@@ -12,6 +12,10 @@ import {MyPetsPageComponent} from "./pages/my-pets-page/my-pets-page.component";
 import {MyPetsListCardComponent} from "./components/my-pets-list-card/my-pets-list-card.component";
 import {AllUsersComponent} from "./pages/all-users/all-users.component";
 import {ProfileCardComponent} from "./components/profile-card/profile-card.component";
+import {ProfileDetailsComponent} from "./pages/profile-details/profile-details.component";
+import {EditPetProfileComponent} from "./pages/edit-pet-profile/edit-pet-profile.component";
+import {AdoptionsComponent} from "./pages/adoptions/adoptions.component";
+
 
 const routes: Routes = [
   {path:'',redirectTo:"/home",pathMatch:"full"},
@@ -26,7 +30,10 @@ const routes: Routes = [
   {path:'myPets', component:MyPetsPageComponent},
   {path:'myPetsCard', component:MyPetsListCardComponent},
   {path:'allUsers', component:AllUsersComponent},
-  {path:'profileCard', component:ProfileCardComponent}
+  {path:'profileCard', component:ProfileCardComponent},
+  {path:'addDetails', component:ProfileDetailsComponent},
+  {path:'editPetProfile', component:EditPetProfileComponent},
+  {path:'adoptions', component:AdoptionsComponent}
 
 
 ];

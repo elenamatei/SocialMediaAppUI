@@ -34,6 +34,13 @@ import { MyPetsListCardComponent } from './components/my-pets-list-card/my-pets-
 import { MyPetsPageComponent } from './pages/my-pets-page/my-pets-page.component';
 import { AllUsersComponent } from './pages/all-users/all-users.component';
 import { ProfileCardComponent } from './components/profile-card/profile-card.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ProfileDetailsComponent } from './pages/profile-details/profile-details.component';
+import { EditPetProfileComponent } from './pages/edit-pet-profile/edit-pet-profile.component';
+import { CreatePostComponent } from './components/create-post/create-post.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { AdoptionsComponent } from './pages/adoptions/adoptions.component';
+import { AdoptionCardComponent } from './components/adoption-card/adoption-card.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +58,12 @@ import { ProfileCardComponent } from './components/profile-card/profile-card.com
     MyPetsListCardComponent,
     MyPetsPageComponent,
     AllUsersComponent,
-    ProfileCardComponent
+    ProfileCardComponent,
+    ProfileDetailsComponent,
+    EditPetProfileComponent,
+    CreatePostComponent,
+    AdoptionsComponent,
+    AdoptionCardComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +87,8 @@ import { ProfileCardComponent } from './components/profile-card/profile-card.com
     MatRadioModule,
     MatStepperModule,
     FormsModule,
+    MatGridListModule,
+    MatDialogModule
 
   ],
   providers: [],

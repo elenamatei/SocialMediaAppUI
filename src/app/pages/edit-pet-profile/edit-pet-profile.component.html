@@ -1,0 +1,108 @@
+<div class="background"></div>
+<app-nav-bar></app-nav-bar>
+<div class="container">
+
+
+  <div class="content d-flex flex-column align-content-center justify-content-start ">
+
+    <div class="profile-image">
+      <img src="../../../assets/molly.jpg" >
+    </div>
+    <img class="gif" src="../../../assets/giphy.gif">
+
+    <div class="change-photo">
+      <button  class="round-button-pic" id="login" mat-raised-button color="accent" > Change picture  </button>
+    </div>
+
+
+
+    <div class="boxes mt-2 ">
+      <div class="shadows">
+        <div class="shadow1"></div>
+        <div class="shadow2"></div>
+      </div>
+      <div class="edit-fields">
+
+
+
+        <mat-form-field appearance="outline" class="pet-name register-field">
+          <mat-label>Name <i class="fa-solid fa-paw"></i></mat-label>
+          <input class="input-new" [(ngModel)]="name" matInput placeholder="Your Pet's Name">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-type register-field">
+          <mat-label>Type <i class="fa-solid fa-cat"></i><i class="fa-solid fa-dog"></i></mat-label>
+          <input class="input-new" [(ngModel)]="type" matInput placeholder="Cat,Dog,Parrot...">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-breed register-field">
+          <mat-label>Breed <i class="fa-solid fa-paw"></i></mat-label>
+          <input class="input-new" [(ngModel)]="race" matInput placeholder="Your Pet's Breed">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="pet-color register-field">
+          <mat-label>Color <i class="fa-solid fa-palette"></i></mat-label>
+          <input class="input-new" [(ngModel)]="color" matInput placeholder="Gray,White,Black...">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width birth-date register-field" appearance="outline" >
+          <mat-label>Birth Date <i class="fa-solid fa-cake-candles"></i></mat-label>
+          <input class="input-new" [(ngModel)]="birthDate" matInput [matDatepicker]="picker" placeholder="6/20/2020">
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="gender register-field">
+          <mat-label>Gender<i class="fa-solid fa-mars-and-venus"></i></mat-label>
+          <mat-select class="input-new" [(ngModel)]="gender">
+            <mat-option value="Male">Male</mat-option>
+            <mat-option value="Female">Female</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width register-field" appearance="outline">
+          <mat-label>Favourite Food <i class="fa-solid fa-carrot"></i></mat-label>
+          <input class="input-new" [(ngModel)]="favouriteFood"  matInput #message maxlength="256" placeholder="My pet likes to eat carrots.">
+          <mat-hint align="start"><strong>Every pet loves food!</strong> </mat-hint>
+          <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width register-field" appearance="outline">
+          <mat-label>About <i class="fa-solid fa-paw"></i></mat-label>
+          <input class="input-new" [(ngModel)]="description" matInput #message2 maxlength="256" placeholder="My pet likes to eat carrots.">
+          <mat-hint align="start"><strong>Describe your pet!</strong> </mat-hint>
+          <mat-hint align="end">{{message2.value.length}} / 256</mat-hint>
+        </mat-form-field>
+
+        <div class="neutered-radio">
+          <span class="register-field">Is Neutered? </span>
+          <mat-radio-group  [(ngModel)]="isNeutered" aria-label="Select an option">
+            <mat-radio-button value="Yes">Yes</mat-radio-button>
+            <mat-radio-button value="Not yet">Not yet</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+
+
+        <div class="action-buttons">
+          <button   class="round-button" mat-raised-button color="accent" > Update profile </button>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+  <div class="bottom">                     </div>
+</div>

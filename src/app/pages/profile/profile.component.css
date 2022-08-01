@@ -32,10 +32,11 @@ a, a:hover {
   width: 100%;
   min-height: 460px;
   margin: auto;
-  box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+  /*box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;*/
+  box-shadow: 0 8px 32px 0 var(--dark-blue);
+
   background: white;
-  /*background-image: url("../../../assets/—Pngtree—colorful smoke abstract smoke background_6000596.png");*/
-  border-radius: 12px;
+  border-radius: 4px;
   max-width: 700px;
   position: relative;
 }
@@ -257,7 +258,6 @@ mat-icon {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
   flex-wrap: wrap;
   width: 100%;
 }
@@ -293,6 +293,17 @@ mat-icon {
   .round-button:hover {
     transform: translateY(-5px);
   }
+}
+
+.feed-button {
+  position: fixed;
+  bottom: 2em;
+  left: 1.5em;
+  background-color: var(--gray-mauve);
+  color: white;
+}
+.feed-button i{
+  font-size:25px;
 }
 
 .edit-profile{
