@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
   birthDate: Date;
 
   async handleRegister(){
-    let resultAxios =await axios.post('http://localhost:4200/api/register',
+    let resultAxios =await axios.post('http://localhost:4200/api/register/',
       {
         "firstName":this.firstName,
         "lastName": this.lastName,

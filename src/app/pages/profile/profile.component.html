@@ -13,7 +13,7 @@
         <a [routerLink]="['/editProfile']"> <mat-icon>edit</mat-icon></a>
       </div>
 
-      <div class="name">Molly Matei</div>
+      <div class="name">{{firstName}} {{lastName}}</div>
       <div class="occupation">
         <span>
           <mat-icon>work</mat-icon>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="grouped-item">
-          <div class="grouped-item-description">20-6-2020</div>
+          <div class="grouped-item-description">{{birthDate}}</div>
           <div class="grouped-item-title">Birth Date</div>
         </div>
 

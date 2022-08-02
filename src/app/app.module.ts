@@ -41,6 +41,9 @@ import { CreatePostComponent } from './components/create-post/create-post.compon
 import {MatDialogModule} from "@angular/material/dialog";
 import { AdoptionsComponent } from './pages/adoptions/adoptions.component';
 import { AdoptionCardComponent } from './components/adoption-card/adoption-card.component';
+import { BirthdayCardComponent } from './components/birthday-card/birthday-card.component';
+import { BirthdaysPageComponent } from './pages/birthdays-page/birthdays-page.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { AdoptionCardComponent } from './components/adoption-card/adoption-card.
     EditPetProfileComponent,
     CreatePostComponent,
     AdoptionsComponent,
-    AdoptionCardComponent
+    AdoptionCardComponent,
+    BirthdayCardComponent,
+    BirthdaysPageComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,

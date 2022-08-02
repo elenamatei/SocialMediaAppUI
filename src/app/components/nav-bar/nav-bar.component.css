@@ -39,4 +39,8 @@ nav{
   margin: 0px;
 
 }
-
+@media screen and (min-width: 1280px) {
+  .birthdays {
+    display: none;
+  }
+}

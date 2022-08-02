@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import axios from "axios";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-profile-details',
@@ -8,7 +9,7 @@ import axios from "axios";
 })
 export class ProfileDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -49,8 +50,13 @@ export class ProfileDetailsComponent implements OnInit {
 
 
   async handleAddDetails(){
-    console.log(this.description);
-    let resultAxios =await axios.post('http://localhost:4200/api/addDetails',
+    // console.log(this.description);
+    let id = "";
+    this.route.params.subscribe( res => {
+      id = res["id"];
+
+    } );
+    let resultAxios =await axios.post('http://localhost:4200/api/addDetails/'+id,
       {
         "birthPlace":this.birthPlace,
         "livingCity":this.livingCity,
@@ -59,7 +65,7 @@ export class ProfileDetailsComponent implements OnInit {
         "studies": this.studies,
         "description":this.description,
         "profilePicture":this.selectedPhotoString,
-        "token":"6c6d555c2a9c1fc466635a25197dafc0"
+        "token":"d223a989e493ebb60c7426b1a666fac4"
       },
       {
         headers: { 'Content-Type': 'application/json',

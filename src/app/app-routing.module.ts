@@ -15,6 +15,7 @@ import {ProfileCardComponent} from "./components/profile-card/profile-card.compo
 import {ProfileDetailsComponent} from "./pages/profile-details/profile-details.component";
 import {EditPetProfileComponent} from "./pages/edit-pet-profile/edit-pet-profile.component";
 import {AdoptionsComponent} from "./pages/adoptions/adoptions.component";
+import {BirthdaysPageComponent} from "./pages/birthdays-page/birthdays-page.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
   {path:'profile', component:ProfileComponent},
+  {path:'profile/:id', component:ProfileComponent},
   {path:'feed', component:FeedComponent},
   {path:'editProfile', component:EditProfileComponent},
   {path:'petProfile', component:PetProfileComponent},
@@ -32,8 +34,10 @@ const routes: Routes = [
   {path:'allUsers', component:AllUsersComponent},
   {path:'profileCard', component:ProfileCardComponent},
   {path:'addDetails', component:ProfileDetailsComponent},
+  {path:'addDetails/:id', component:ProfileDetailsComponent},
   {path:'editPetProfile', component:EditPetProfileComponent},
-  {path:'adoptions', component:AdoptionsComponent}
+  {path:'adoptions', component:AdoptionsComponent},
+  {path:'birthdays', component:BirthdaysPageComponent}
 
 
 ];

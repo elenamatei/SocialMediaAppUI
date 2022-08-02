@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CommentsComponent} from "../comments/comments.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-post',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -53,9 +55,10 @@ export class PostComponent implements OnInit {
   //
   // }
   //
-  // onReplyClick(){
-  //   this.dialog.open(ReplyComponent,{data: this.postData.postId});
-  // }
+  onCommentsClick(){
+    // this.dialog.open(CommentsComponent,{data: this.postData.postId});
+    this.dialog.open(CommentsComponent);
+  }
 
 
 }

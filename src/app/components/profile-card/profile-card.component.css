@@ -114,6 +114,7 @@ h1{
   border-radius: 24px;
   backface-visibility: hidden;
   transition: all 0.3s;
+  padding: 2px 10px 2px 10px;
 }
 mat-icon{
   color: white;

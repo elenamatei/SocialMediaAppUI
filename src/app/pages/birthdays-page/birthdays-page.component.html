@@ -1,0 +1,27 @@
+<div class="background"></div>
+<div class="logo">
+  <img src="../../../assets/logo-lightbg.png">
+</div>
+<div class="content">
+
+
+  <mat-card class="scrollable-content invisible-card">
+    <mat-card-header>
+      <mat-card-title>Today's Birthdays <i class="fa-solid fa-cake-candles"></i></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+      <app-birthday-card></app-birthday-card>
+    </mat-card-content>
+
+  </mat-card>
+
+  <button  [routerLink]="['/feed']" mat-fab color="warn" class="back-button" matTooltip="Back to feed"><i class="fa-solid fa-table-columns"></i></button>
+
+</div>
