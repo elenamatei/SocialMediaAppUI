@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import axios from "axios";
+import {MatSnackBar} from "@angular/material/snack-bar";
 //import {Router} from "@angular/router";
 
 @Component({
@@ -10,11 +11,24 @@ import axios from "axios";
 })
 export class RegisterComponent implements OnInit {
 
-
-  constructor() { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
+
+
+  // openSnackBar(message: string) {
+  //   this._snackBar.openFromComponent(RegisterComponent, {
+  //     duration: this.durationInSeconds * 1000,
+  //   });
+  // }
+  openSnackBar(message: string, action:string) {
+    this._snackBar.open(message,action,{
+      duration: 4000,
+    });
+  }
+
+
   hide = true;
 
   firstName: String;

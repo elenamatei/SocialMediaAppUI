@@ -19,21 +19,21 @@
           <mat-icon>work</mat-icon>
         </span>
         <span class="occupation-name details">
-          Front-end Developer
+          {{occupation}}
         </span>
 
           <span>
             <mat-icon> business</mat-icon>
           </span>
           <span class="work-place details">
-            Acasa la mini
+            {{workPlace}}
           </span>
 
         <span>
             <mat-icon>school</mat-icon>
           </span>
         <span class="studies-place details">
-            FMI Unibuc
+            {{studies}}
           </span>
 
 
@@ -45,14 +45,14 @@
           <mat-icon> location_on</mat-icon>
         </span>
         <span class="living-location details">
-          Bucuresti, Romania
+          {{livingCity}}
         </span>
 
         <span class="home-icon">
           <mat-icon>home</mat-icon>
         </span>
         <span class="home-location details">
-          Slatina, Romania
+          {{birthPlace}}
         </span>
       </div>
 
@@ -77,7 +77,8 @@
       <div class="about">
 
         <h2>About me</h2>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam euismod ipsum vitae sollicitudin. Praesent eleifend a diam ut commodo. Nulla viverra nisl purus, et molestie purus tincidunt sit amet. Ut vitae auctor elit, in suscipit dui. Curabitur volutpat erat sed rutrum consequat. Pellentesque cursus gravida lacus, ac viverra nibh hendrerit ut. Curabitur nec elementum sapien.
+<!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam euismod ipsum vitae sollicitudin. Praesent eleifend a diam ut commodo. Nulla viverra nisl purus, et molestie purus tincidunt sit amet. Ut vitae auctor elit, in suscipit dui. Curabitur volutpat erat sed rutrum consequat. Pellentesque cursus gravida lacus, ac viverra nibh hendrerit ut. Curabitur nec elementum sapien.-->
+        {{description}}
       </div>
 
       <button  [routerLink]="['/feed']" mat-fab color="warn" class="feed-button" matTooltip="Go to feed"><i class="fa-solid fa-table-columns"></i></button>

@@ -5,6 +5,7 @@ import {LoginDTO} from "../../interfaces/login-dto";
 // @ts-ignore
 import {AuthService} from "../../services/AuthService";
 import axios from "axios";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginSuccess = false;
 
 
-  constructor(private authService:AuthService) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
 
   async handleLogin(){
 
-      console.log(this.email);
+     console.log(this.email);
+
 
 
 
@@ -44,6 +46,7 @@ export class LoginComponent implements OnInit {
       })
       .then((response) => {
         console.log(response.data);
+        this.router.navigate(['/feed']);
       });
 
 

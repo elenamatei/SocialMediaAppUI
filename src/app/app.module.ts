@@ -44,6 +44,9 @@ import { AdoptionCardComponent } from './components/adoption-card/adoption-card.
 import { BirthdayCardComponent } from './components/birthday-card/birthday-card.component';
 import { BirthdaysPageComponent } from './pages/birthdays-page/birthdays-page.component';
 import { CommentsComponent } from './components/comments/comments.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { IntermediatePetRegisterComponent } from './pages/intermediate-pet-register/intermediate-pet-register.component';
+
 
 @NgModule({
   declarations: [
@@ -69,7 +72,8 @@ import { CommentsComponent } from './components/comments/comments.component';
     AdoptionCardComponent,
     BirthdayCardComponent,
     BirthdaysPageComponent,
-    CommentsComponent
+    CommentsComponent,
+    IntermediatePetRegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +98,8 @@ import { CommentsComponent } from './components/comments/comments.component';
     MatStepperModule,
     FormsModule,
     MatGridListModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
 
   ],
   providers: [],

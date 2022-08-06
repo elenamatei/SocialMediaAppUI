@@ -16,6 +16,7 @@ import {ProfileDetailsComponent} from "./pages/profile-details/profile-details.c
 import {EditPetProfileComponent} from "./pages/edit-pet-profile/edit-pet-profile.component";
 import {AdoptionsComponent} from "./pages/adoptions/adoptions.component";
 import {BirthdaysPageComponent} from "./pages/birthdays-page/birthdays-page.component";
+import {IntermediatePetRegisterComponent} from "./pages/intermediate-pet-register/intermediate-pet-register.component";
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path:'feed', component:FeedComponent},
   {path:'editProfile', component:EditProfileComponent},
   {path:'petProfile', component:PetProfileComponent},
+  {path:'petProfile/:user_id/:id', component:PetProfileComponent},
   {path:'registerPet', component:RegisterPetComponent},
   {path:'myPets', component:MyPetsPageComponent},
   {path:'myPetsCard', component:MyPetsListCardComponent},
@@ -37,7 +39,8 @@ const routes: Routes = [
   {path:'addDetails/:id', component:ProfileDetailsComponent},
   {path:'editPetProfile', component:EditPetProfileComponent},
   {path:'adoptions', component:AdoptionsComponent},
-  {path:'birthdays', component:BirthdaysPageComponent}
+  {path:'birthdays', component:BirthdaysPageComponent},
+  {path:'anyPets', component:IntermediatePetRegisterComponent}
 
 
 ];
