@@ -322,11 +322,13 @@ mat-icon {
   position:relative;
   background-color: var(--gray-mauve);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
-  overflow-wrap: break-word;
+  text-align: center;
+  /*overflow-wrap: break-word;*/
   padding: 1em;
   padding-bottom: 2em;
   margin-top: 2em;
@@ -339,6 +341,10 @@ mat-icon {
   font-size: larger;
   font-weight: bolder;
 }
+.about .about-text{
+  overflow-wrap: break-word;
+}
+
 .about:before {
   content: "";
   position: absolute;
@@ -348,6 +354,7 @@ mat-icon {
   border-style: solid;
   border-color: var(--grayish) white;
 }
+
 
 h2{
   font-weight: 700;

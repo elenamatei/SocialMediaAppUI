@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {CommentsComponent} from "../comments/comments.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -11,8 +11,23 @@ export class PostComponent implements OnInit {
 
   constructor(private dialog:MatDialog) { }
 
+  @Input() getPost = {user:{firstName:"",lastName:""},text:"", picture:""};
+
+  firstName: String;
+  lastName: String;
+  text: String;
+  pictureURL: String;
+  baseUrl = 'http://localhost:4200';
+
   ngOnInit(): void {
+    this.firstName = this.getPost.user.firstName;
+    this.lastName = this.getPost.user.lastName;
+    this.text = this.getPost.text;
+    this.pictureURL = this.getPost.picture;
+
   }
+
+
 
   // onHeartClick(){
   //   this.postData.liked = !this.postData.liked;

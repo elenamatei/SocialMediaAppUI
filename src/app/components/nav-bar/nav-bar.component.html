@@ -8,23 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup"  [ngClass]="{'showMenu' : showToast}">
       <div class="navbar-nav">
-        <a class="nav-link active"[routerLink]="['/profile']">Profile <i class="fa-solid fa-user"></i></a>
-        <a class="nav-link active" [routerLink]="['/myPets']" >Pets <i class="fa-solid fa-paw"></i></a>
+        <a class="nav-link active"[routerLink]="['/profile/'+ userId]">Profile <i class="fa-solid fa-user"></i></a>
+        <a class="nav-link active" [routerLink]="['/myPets/'+ userId]" >Pets <i class="fa-solid fa-paw"></i></a>
         <a class="nav-link active" [routerLink]="['/adoptions']">Adoptions <i class="fa-solid fa-paw"></i></a>
         <a class="nav-link active" [routerLink]="['/allUsers']">Users <i class="fa-solid fa-user"></i></a>
-        <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle clicked" (click)="showDrop()"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
-            Edit
-          </a>
-          <ul class="dropdown-menu" [style.display]="dropIsVisible ? 'block' : 'none'" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="nav-link active" [routerLink]="['/editProfile']">Edit Profile</a></li>
-            <li><a class="nav-link active" [routerLink]="['/myPets']">Edit Pets Profiles</a></li>
-          </ul>
-        </div>
+        <a class="nav-link active" [routerLink]="['/editProfile']">Edit Profile</a>
         <a class="nav-link active birthdays" [routerLink]="['/birthdays']"><i class="fa-solid fa-cake-candles"></i></a>
+        <a class="nav-link active logout"  matTooltip="Logout" (click)="logout()" ><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
 
         </div>
-
 
     </div>
   </div>

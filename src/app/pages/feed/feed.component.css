@@ -18,6 +18,14 @@
   color: white;
 }
 
+.details-button {
+  position: fixed;
+  bottom: 7em;
+  right: 1.5em;
+  background-color: var(--gray-mauve);
+  color: white;
+}
+
 .pet-button {
   position: fixed;
   bottom: 2em;

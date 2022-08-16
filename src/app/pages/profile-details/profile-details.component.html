@@ -1,5 +1,5 @@
 
-<div class="background" [ngClass]="{'active': show, 'idle': !show}" ></div>
+<div class="background" ></div>
 <div class="container">
 
   <div class="logo">
@@ -15,7 +15,7 @@
 
       <mat-form-field appearance="outline" class="pet-name register-field">
         <mat-label>Birth Place <i class="fa-solid fa-house"></i></mat-label>
-        <input class="input-new" [(ngModel)]="birthPlace"  matInput placeholder="Where are you bord?">
+        <input class="input-new" [(ngModel)]="birthPlace"  matInput placeholder="Where are you born?">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
 
@@ -45,7 +45,7 @@
 
       <mat-form-field class="example-full-width register-field" appearance="outline">
         <mat-label>Description</mat-label>
-        <input class="input-new" [(ngModel)]="description"  matInput #message maxlength="256" placeholder="My pet likes to eat carrots.">
+        <input class="input-new" [(ngModel)]="description"  matInput #message maxlength="256" placeholder="What do you like?">
         <mat-hint align="start"><strong>Describe yourself!</strong> </mat-hint>
         <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
       </mat-form-field>

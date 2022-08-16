@@ -4,12 +4,12 @@
   </div>
   <div class="profile-card">
     <div class="profile-image">
-      <img src="../../../assets/molly.jpg" >
+      <img src="{{baseUrl}}{{profilePicture}}" >
     </div>
 
     <div class="content">
 
-      <div class="edit-profile" matTooltip="Edit profile" >
+      <div class="edit-profile" matTooltip="Edit profile" *ngIf="localStorageId == urlId"  >
         <a [routerLink]="['/editProfile']"> <mat-icon>edit</mat-icon></a>
       </div>
 
@@ -58,7 +58,7 @@
 
       <div class="grouped-details">
         <div class="grouped-item">
-          <div class="grouped-item-description">2</div>
+          <div class="grouped-item-description">{{ageFromBirthDate(birthDate)}}</div>
           <div class="grouped-item-title">Age</div>
         </div>
 
@@ -68,7 +68,7 @@
         </div>
 
         <div class="grouped-item">
-          <div class="grouped-item-description">123</div>
+          <div class="grouped-item-description">{{petsNumber}}</div>
           <div class="grouped-item-title">Pets</div>
         </div>
 
@@ -77,8 +77,8 @@
       <div class="about">
 
         <h2>About me</h2>
-<!--        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam euismod ipsum vitae sollicitudin. Praesent eleifend a diam ut commodo. Nulla viverra nisl purus, et molestie purus tincidunt sit amet. Ut vitae auctor elit, in suscipit dui. Curabitur volutpat erat sed rutrum consequat. Pellentesque cursus gravida lacus, ac viverra nibh hendrerit ut. Curabitur nec elementum sapien.-->
-        {{description}}
+
+        <div class="about-text"> {{description}}</div>
       </div>
 
       <button  [routerLink]="['/feed']" mat-fab color="warn" class="feed-button" matTooltip="Go to feed"><i class="fa-solid fa-table-columns"></i></button>
@@ -86,33 +86,11 @@
       <div class="buttons">
 
         <button class="round-button  message-button"  mat-raised-button  color="primary"><mat-icon> message</mat-icon>Message</button>
-        <a [routerLink]="['/petProfile']"> <button  class="round-button pets-button" mat-raised-button color="accent" > <mat-icon>pets</mat-icon> Pets Profiles  </button></a>
+        <a> <button  class="round-button pets-button" mat-raised-button color="accent" > <mat-icon>pets</mat-icon> Pets Profiles  </button></a>
       </div>
     </div>
 
-<!--    <div class="profile-card-message js-message">-->
-<!--      <form class="profile-card-form">-->
-<!--        <div class="profile-card-form__container">-->
-<!--          <textarea placeholder="Say something..."></textarea>-->
-<!--        </div>-->
-
-<!--        <div class="profile-card-form__bottom">-->
-<!--          <button class="profile-card__button button&#45;&#45;blue js-message-close">-->
-<!--            Send-->
-<!--          </button>-->
-
-<!--          <button class="profile-card__button button&#45;&#45;gray js-message-close">-->
-<!--            Cancel-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </form>-->
-
-<!--      <div class="profile-card__overlay js-message-close"></div>-->
-<!--    </div>-->
-
-
   </div>
-
 
 </div>
 

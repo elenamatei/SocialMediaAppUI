@@ -9,23 +9,6 @@
 
     <div class="form-left">
 
-<!--      <mat-vertical-stepper >-->
-<!--        <mat-step >-->
-
-<!--            <ng-template matStepLabel>Make your profile!</ng-template>-->
-
-
-<!--        </mat-step>-->
-<!--        <mat-step >-->
-
-<!--            <ng-template matStepLabel>Make a profile for your pet!</ng-template>-->
-
-<!--        </mat-step>-->
-<!--        <mat-step>-->
-<!--          <ng-template matStepLabel>Enjoy the app!</ng-template>-->
-
-<!--        </mat-step>-->
-<!--      </mat-vertical-stepper>-->
 
       <img class="decor-img"  src="../../../assets/registerpet.png">
 
@@ -40,10 +23,17 @@
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
 
+
       <mat-form-field appearance="outline" class="pet-type register-field">
         <mat-label>Type <i class="fa-solid fa-cat"></i><i class="fa-solid fa-dog"></i></mat-label>
-        <input class="input-new" [(ngModel)]="type" matInput placeholder="Cat,Dog,Parrot...">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-select class="input-new" [(ngModel)]="type">
+          <mat-option value="Cat">Cat</mat-option>
+          <mat-option value="Dog">Dog</mat-option>
+          <mat-option value="Bird">Bird</mat-option>
+          <mat-option value="Rodent">Rodent</mat-option>
+          <mat-option value="Reptile">Reptile</mat-option>
+          <mat-option value="Fish">Fish</mat-option>
+        </mat-select>
       </mat-form-field>
 
       <mat-form-field appearance="outline" class="pet-breed register-field">
@@ -105,7 +95,7 @@
               </div>
               <button mat-button color="warn">
                 <label for="photo-upload">
-                  <input class="input-new" [(ngModel)]="selectedProfilePhoto" #photoSelector (change)="onPhotoSelected(photoSelector)"
+                  <input class="input-new"  #photoSelector (change)="onPhotoSelected(photoSelector)"
                          id="photo-upload" type="file" accept="image/*"/>
                   <mat-icon>insert_photo</mat-icon>
                 </label>

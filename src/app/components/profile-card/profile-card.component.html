@@ -1,27 +1,28 @@
 <!--<div class="wrapper">-->
   <div class="container">
 
-    <img src="../../../assets/molly.jpg"  class="profile-img">
+    <img src="{{baseUrl}}{{profilePicture}}"  class="profile-img">
 
 
     <div class="content">
       <div class="sub-content">
-        <h1>Molly Matei</h1>
-        <p> <i class="fa-solid fa-briefcase"></i> Front-end Developer </p>
-        <span class="location"><i class="fa-solid fa-location-dot"></i> Bucuresti, Romania</span>
+        <h1 (click)="goToProfile(userId)">{{firstName}} {{lastName}}</h1>
+        <p> <i class="fa-solid fa-briefcase"></i> {{occupation}} </p>
+        <span class="location"><i class="fa-solid fa-location-dot"></i> {{livingCity}}</span>
       </div>
       <div class="data">
         <div class="inner-data">
           <span><i class="fa-solid fa-cake-candles"></i> Age </span>
-          <p>24</p>
+<!--          <p>{{calculateAge(birthDate)}}</p>-->
+          <p>{{ageFromBirthDate(birthDate)}}</p>
         </div>
         <div class="inner-data">
           <span><i class="fa-solid fa-users"></i> Joined</span>
-          <p>01-01-2022</p>
+          <p>{{joinedDate}}</p>
         </div>
         <div class="inner-data">
-          <span><i class="fa-solid fa-paw"></i> Pets</span>
-          <p>123</p>
+          <span><i class="fa-solid fa-mars-and-venus"></i> Gender</span>
+          <p>{{gender}}</p>
         </div>
       </div>
 

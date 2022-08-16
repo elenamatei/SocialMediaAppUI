@@ -16,13 +16,13 @@
 
         <p>Do you have any pets that you would like to register in our app?</p>
 
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group [(ngModel)]="hasPet"  aria-label="Select an option">
           <mat-radio-button value="yes"> Yes</mat-radio-button>
           <mat-radio-button value="no"> No</mat-radio-button>
         </mat-radio-group>
 
         <div class="button-container">
-          <button class="round-button  continue-button"  mat-raised-button  color="accent"> Continue</button>
+          <button class="round-button  continue-button" (click)="continue()"  mat-raised-button  color="accent"> Continue</button>
         </div>
 
       </div>

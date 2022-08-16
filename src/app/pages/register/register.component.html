@@ -44,7 +44,7 @@
         </mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <div class="action-buttons" (click)="openSnackBar('Your accound has been created!', 'Ok')">
+      <div class="action-buttons" >
         <button (click)="handleRegister()"  class="round-button" mat-raised-button  color="primary">Create account</button>
         <a [routerLink]="['/login']"> <button  class="round-button" mat-raised-button color="accent" > Login here! </button></a>
         <!-- <button (click)="goToLogin()" > Login here! </button> -->

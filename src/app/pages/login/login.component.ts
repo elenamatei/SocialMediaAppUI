@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
-// @ts-ignore
-import {LoginDTO} from "../../interfaces/login-dto";
-// @ts-ignore
-import {AuthService} from "../../services/AuthService";
 import axios from "axios";
 import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-login',
@@ -14,10 +10,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  loginSuccess = false;
-
-
-  constructor(private router: Router) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -26,14 +19,15 @@ export class LoginComponent implements OnInit {
   password: String ;
   hide = true;
 
+  openSnackBar(message: string, action:string) {
+    this._snackBar.open(message,action,{
+      duration: 4000,
+    });
+  }
+
   async handleLogin(){
 
-     console.log(this.email);
-
-
-
-
-    let resultAxios =await axios.post('http://localhost:4200/api/login',
+    let resultAxios = (await axios.post('http://localhost:4200/api/login',
       {
         "email":this.email,
         "password":this.password
@@ -43,19 +37,22 @@ export class LoginComponent implements OnInit {
                     'Access-Control-Allow-Origin': '*',
         'Accept': '*/*'}
 
-      })
-      .then((response) => {
-        console.log(response.data);
-        this.router.navigate(['/feed']);
-      });
+      })).data;
 
+    if(resultAxios.error){
+      if(resultAxios.error.errorCode == 1){
+        this.openSnackBar("Wrong email!", "Ok");
+      }
+      else if(resultAxios.error.errorCode == 2){
+        this.openSnackBar("Wrong email or password!", "Ok");
+      }
 
-
-
+    } else {
+      localStorage.setItem("token", resultAxios.token);
+      localStorage.setItem("user_id", resultAxios.user_id);
+      await this.router.navigate(['/feed']);
+    }
 
   }
-
-
-
 
 }

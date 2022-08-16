@@ -22,16 +22,8 @@
 
 
 
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
-    <app-post></app-post>
+    <app-post *ngFor=" let post of allPosts" [getPost]="post"  ></app-post>
+
 
 
     <!-- reusable component "post" -->
@@ -40,6 +32,7 @@
 
   <button  (click)="onCreatePostClick()" mat-fab color="warn" class="post-button" matTooltip="New post"><mat-icon>add</mat-icon></button>
   <button  [routerLink]="['/registerPet']" mat-fab color="warn" class="pet-button" matTooltip="Add pet"><i class="fa-solid fa-paw"></i></button>
+  <button  [routerLink]="['/addDetails']"  *ngIf="!detailsAdded" mat-fab color="warn" class="details-button" matTooltip="Add details"><i class="fa-solid fa-info"></i></button>
 
 
 

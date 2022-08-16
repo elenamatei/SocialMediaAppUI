@@ -10,18 +10,8 @@
 
   <div class="content">
 
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
-    <app-profile-card></app-profile-card>
+    <app-profile-card *ngFor=" let user of allUsers" [getAllUsers]="user" ></app-profile-card>
+
 
 
   </div>

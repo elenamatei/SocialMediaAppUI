@@ -3,26 +3,22 @@
 <div class="container">
 
   <div class="content">
-    <div class="illustrations">
+    <div class="illustrations" >
 
       <div class="filter-row">Find your pets by type:</div>
-      <img matTooltip="Cats" src="../../../assets/DrawKit Vector Illustration Animal & Pets (9).png" />
-      <img matTooltip="Dogs" src="../../../assets/DrawKit Vector Illustration Animal & Pets (3).png" />
-      <img matTooltip="Rodens" src="../../../assets/DrawKit Vector Illustration Animal & Pets (6).png"/>
-      <img matTooltip="Birds" src="../../../assets/DrawKit Vector Illustration Animal & Pets (1).png"/>
-      <img matTooltip="Fish" src="../../../assets/DrawKit Vector Illustration Animal & Pets (4).png"/>
-      <img matTooltip="Reptiles" src="../../../assets/DrawKit Vector Illustration Animal & Pets (25).png" />
+      <img matTooltip="Cats" (click)="filterByType('Cat')"  src="../../../assets/DrawKit Vector Illustration Animal & Pets (9).png" />
+      <img matTooltip="Dogs" (click)="filterByType('Dog')" src="../../../assets/DrawKit Vector Illustration Animal & Pets (3).png" />
+      <img matTooltip="Rodents" (click)="filterByType('Rodent')" src="../../../assets/DrawKit Vector Illustration Animal & Pets (6).png"/>
+      <img matTooltip="Birds" (click)="filterByType('Bird')" src="../../../assets/DrawKit Vector Illustration Animal & Pets (1).png"/>
+      <img matTooltip="Fish" (click)="filterByType('Fish')" src="../../../assets/DrawKit Vector Illustration Animal & Pets (4).png"/>
+      <img matTooltip="Reptiles" (click)="filterByType('Reptile')" src="../../../assets/DrawKit Vector Illustration Animal & Pets (25).png" />
+      <div matTooltip="Reset" class="reset" (click)="getPets()"><i class="fa-solid fa-rotate"></i></div>
+      <!--      <img matTooltip="Reset" class="reset" (click)="getPets()" src="../../../assets/Refresh.png" width="100px" height="76.53px" />-->
 
     </div>
 
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
-    <app-my-pets-list-card></app-my-pets-list-card>
+    <app-my-pets-list-card *ngFor=" let pets of allPets" [getPets]="pets" ></app-my-pets-list-card>
+
 
 
   </div>

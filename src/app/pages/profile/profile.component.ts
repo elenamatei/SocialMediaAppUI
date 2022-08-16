@@ -15,7 +15,8 @@ export class ProfileComponent implements OnInit {
 
   lastName : String;
   firstName : String;
-  birthDate: Date;
+  birthDate: string;
+  // age: String;
 
   birthPlace: String;
   livingCity: String;
@@ -23,22 +24,26 @@ export class ProfileComponent implements OnInit {
   workPlace: String;
   studies: String;
   description: String;
+  profilePicture: String;
+  petsNumber: String;
 
+  localStorageId: string | null;
+  urlId: undefined;
+  baseUrl = 'http://localhost:4200';
 
   ngOnInit(): void {
 
+    this.localStorageId = localStorage.getItem("user_id");
+
+    this.route.params.subscribe( res => {
+      this.urlId = res["id"];
+    } );
 
       this.getUser();
-      this.getUserDetails();
-
   }
   async getUser() {
-    let id = "";
-    this.route.params.subscribe( res => {
-      id = res["id"];
 
-    } );
-    let resultAxios = await axios.get('http://localhost:4200/api/profile/'+id,
+    let resultAxios = (await axios.get('http://localhost:4200/api/profile/'+this.urlId,
 
       {
         headers: {
@@ -46,43 +51,41 @@ export class ProfileComponent implements OnInit {
           'Accept': '*/*'
         }
 
-      })
-      .then((response) => {
-        console.log(response.data);
-        this.lastName = response.data.lastName;
-        this.firstName = response.data.firstName;
-        this.birthDate = response.data.birthDate.join("-");
-      });
+      })).data;
+
+    if(resultAxios.user){
+        this.lastName = resultAxios.user.lastName;
+        this.firstName = resultAxios.user.firstName;
+        this.birthDate = resultAxios.user.birthDate;
+        // this.age = resultAxios.user.age;
+    }
+    if(resultAxios.details){
+      this.birthPlace = resultAxios.details.birthPlace;
+      this.livingCity = resultAxios.details.livingCity;
+      this.studies = resultAxios.details.studies;
+      this.occupation = resultAxios.details.occupation;
+      this.workPlace = resultAxios.details.workPlace;
+      this.description = resultAxios.details.description;
+      this.profilePicture = resultAxios.details.profilePicture;
+    }
+    if(resultAxios.pets){
+      this.petsNumber = resultAxios.pets;
+      console.log(resultAxios.pets);
+    }
 
   }
 
+  ageFromBirthDate(birthDate: string): number {
+    let today = new Date();
+    let date = new Date(birthDate);
+    let age = today.getFullYear() - date.getFullYear();
+    const m = today.getMonth() - date.getMonth();
 
-  async getUserDetails() {
-    let id = "";
-    this.route.params.subscribe( res => {
-      id = res["id"];
+    if (m < 0 || (m === 0 && today.getDate() < date.getDate())) {
+      age--;
+    }
 
-    } );
-    let resultAxios = await axios.get('http://localhost:4200/api/details/'+id,
-
-      {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Accept': '*/*'
-        }
-
-      })
-      .then((response) => {
-        console.log(response.data);
-        this.birthPlace = response.data.birthPlace;
-        this.livingCity = response.data.livingCity;
-        this.occupation = response.data.occupation;
-        this.workPlace = response.data.workPlace;
-        this.studies = response.data.studies;
-        this.description = response.data.description;
-      });
-
+    return age;
   }
 
-
-  }
+}

@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
 import axios from "axios";
 import {MatSnackBar} from "@angular/material/snack-bar";
-//import {Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -11,23 +10,17 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private _snackBar: MatSnackBar) { }
+  constructor(private _snackBar: MatSnackBar, private router: Router ) { }
 
   ngOnInit(): void {
   }
 
 
-  // openSnackBar(message: string) {
-  //   this._snackBar.openFromComponent(RegisterComponent, {
-  //     duration: this.durationInSeconds * 1000,
-  //   });
-  // }
   openSnackBar(message: string, action:string) {
     this._snackBar.open(message,action,{
       duration: 4000,
     });
   }
-
 
   hide = true;
 
@@ -39,7 +32,8 @@ export class RegisterComponent implements OnInit {
   birthDate: Date;
 
   async handleRegister(){
-    let resultAxios =await axios.post('http://localhost:4200/api/register/',
+
+    let resultAxios =(await axios.post('http://localhost:4200/api/register/',
       {
         "firstName":this.firstName,
         "lastName": this.lastName,
@@ -53,15 +47,18 @@ export class RegisterComponent implements OnInit {
           'Access-Control-Allow-Origin': '*',
           'Accept': '*/*'}
 
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
+      })).data;
 
-
+    if(resultAxios.error) {
+      if (resultAxios.error.errorCode == 1) {
+        this.openSnackBar("Wrong email or email already taken!", "Ok");
+      }
+    } else {
+      localStorage.setItem("token", resultAxios.token);
+      localStorage.setItem("user_id", resultAxios.user_id);
+      await this.router.navigate(['/anyPets']);
+    }
 
   }
-
-
 
 }

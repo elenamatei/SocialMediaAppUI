@@ -6,15 +6,23 @@
   <div class="content d-flex flex-column align-content-center justify-content-start ">
 
     <div class="profile-image">
-      <img src="../../../assets/molly.jpg" >
+      <img src="{{baseUrl}}{{picture}}" >
     </div>
     <img class="gif" src="../../../assets/giphy.gif">
 
-    <div class="change-photo">
-      <button  class="round-button-pic" id="login" mat-raised-button color="accent" > Change picture  </button>
+    <div class="profile-image2 register-field">
+
+      <div *ngIf="selectedProfilePhoto" id="post-preview">
+        <img id="post-preview-image"/>
+      </div>
+      <button mat-button color="warn">
+        <label for="photo-upload">
+          <input class="input-new"  #photoSelector (change)="onPhotoSelected(photoSelector)"
+                 id="photo-upload" type="file" accept="image/*"/>
+          <i class="fa-solid fa-id-badge"></i>  Change pet picture
+        </label>
+      </button>
     </div>
-
-
 
     <div class="boxes mt-2 ">
       <div class="shadows">
@@ -22,8 +30,6 @@
         <div class="shadow2"></div>
       </div>
       <div class="edit-fields">
-
-
 
         <mat-form-field appearance="outline" class="pet-name register-field">
           <mat-label>Name <i class="fa-solid fa-paw"></i></mat-label>

@@ -102,6 +102,7 @@ h1{
   font-size: 24px;
   color: var(--bold-purple);
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .button-container{

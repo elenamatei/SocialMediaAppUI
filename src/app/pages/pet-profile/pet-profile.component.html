@@ -10,7 +10,7 @@
   <div class="pet-card">
 
       <div class="pet-profile-image">
-        <img src="../../../assets/molly.jpg" >
+        <img src="{{baseUrl}}{{picture}}" >
 
       </div>
 
@@ -18,7 +18,7 @@
       <div class="content">
 
 
-        <div class="edit-profile" matTooltip="Edit profile" >
+        <div class="edit-profile" matTooltip="Edit profile" *ngIf="localStorageId == ownerId">
           <a [routerLink]="['/editPetProfile']"> <mat-icon>edit</mat-icon></a>
         </div>
 
@@ -49,12 +49,10 @@
           </div>
 
           <div class="grouped-item">
-            <div class="grouped-item-description">2</div>
+            <div class="grouped-item-description">{{ageFromBirthDate(birthDate)}}</div>
             <div class="grouped-item-title">Age</div>
           </div>
           <div class="grouped-item">
-<!--            <div class="grouped-item-description"><i class="fa-solid fa-mars"></i></div>-->
-<!--            <div class="grouped-item-description"><i class="fa-solid fa-venus"></i></div>-->
             <div class="grouped-item-description">{{gender}}</div>
             <div class="grouped-item-title">
               Gender
@@ -66,7 +64,7 @@
           </div>
           <div class="grouped-item">
             <a [routerLink]="['/profile']">
-            <div class="grouped-item-description">Elena Matei</div></a>
+            <div class="grouped-item-description" (click)="goToUser(ownerId)">Elena Matei</div></a>
             <div class="grouped-item-title">Owner</div>
           </div>
 
@@ -76,7 +74,6 @@
           <div class="food">
             <span>Favourite food <i class="fa-solid fa-utensils"></i></span>
             <div class="food-list">
-<!--                  Felix, Schesir , Jelly food  mbngm,kgmbfngbfmk,dlfnbgfnmd,ldfngbfmk,dlfgbfnmgbhnjk-->
                 {{favouriteFood}}
             </div>
           </div>
@@ -94,12 +91,7 @@
           </div>
           </div>
         </div>
-
-
       </div>
-
-
-
 
 </div>
 </div>

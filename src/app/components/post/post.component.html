@@ -1,11 +1,11 @@
 <div class="post-card">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>Molly</mat-card-title>
+      <mat-card-title>{{firstName}} {{lastName}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="../../../assets/molly.jpg">
+    <img mat-card-image src="{{baseUrl}}{{pictureURL}}">
     <mat-card-content>
-      This is my first post!
+      {{text}}
     </mat-card-content>
     <mat-card-actions>
 <!--      <mat-icon class="action-item-fav action" *ngIf="!postData.liked" (click)="onHeartClick()" >favorite_border</mat-icon>-->

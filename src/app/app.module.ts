@@ -48,6 +48,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { IntermediatePetRegisterComponent } from './pages/intermediate-pet-register/intermediate-pet-register.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

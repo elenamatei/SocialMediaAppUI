@@ -5,12 +5,28 @@
   <div class="content d-flex flex-column align-content-center justify-content-start ">
 
     <div class="profile-image">
-      <img src="../../../assets/molly.jpg" >
+      <img src="{{baseUrl}}{{profilePicture}}" >
     </div>
 
-    <div class="change-photo">
-        <button  class="round-button-pic" id="login" mat-raised-button color="accent" > Change picture  </button>
+    <div class="profile-image2 register-field">
+
+      <div *ngIf="selectedProfilePhoto" id="post-preview">
+        <img id="post-preview-image"/>
+      </div>
+      <button mat-button color="warn">
+        <label for="photo-upload">
+          <input class="input-new"  #photoSelector (change)="onPhotoSelected(photoSelector)"
+              [(ngModel)]="profilePicture"   id="photo-upload" type="file" accept="image/*"/>
+          <i class="fa-solid fa-id-badge"></i>  Change picture
+        </label>
+      </button>
     </div>
+
+<!--    <div class="change-photo">-->
+<!--        <button  class="round-button-pic"  mat-raised-button color="accent" >-->
+<!--          Change picture-->
+<!--        </button>-->
+<!--    </div>-->
 
     <div class="boxes mt-2 ">
       <div class="shadows">
@@ -21,33 +37,33 @@
 
         <mat-form-field appearance="outline" class="first-name register-field">
           <mat-label>First Name</mat-label>
-          <input matInput placeholder="Your First Name">
+          <input matInput placeholder="Your First Name" [(ngModel)]="firstName">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="last-name register-field">
           <mat-label>Last Name</mat-label>
-          <input  matInput placeholder="Your Last Name">
+          <input  matInput placeholder="Your Last Name" [(ngModel)]="lastName">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="email register-field">
           <mat-label>Email</mat-label>
-          <input matInput  placeholder="socialmedia@example.com"  required>
+          <input matInput  placeholder="socialmedia@example.com"  [(ngModel)]="email" disabled  >
           <!--        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="password register-field">
+        <mat-form-field appearance="outline" class="password register-field" >
           <mat-label>Enter password</mat-label>
-          <input matInput  [type]="hide ? 'password' : 'text'">
+          <input matInput  [type]="hide ? 'password' : 'text'" [(ngModel)]="password">
           <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
 
-        <mat-form-field appearance="outline" class="gender register-field">
+        <mat-form-field appearance="outline" class="gender register-field" disabled="true" >
           <mat-label>Gender</mat-label>
-          <mat-select >
+          <mat-select [(ngModel)]="gender" disabled>
             <mat-option value="Male">Male</mat-option>
             <mat-option value="Female">Female</mat-option>
             <mat-option value="None">None</mat-option>
@@ -56,7 +72,7 @@
 
         <mat-form-field class="example-full-width birth-date register-field" appearance="outline" >
           <mat-label>Birth Date</mat-label>
-          <input  matInput [matDatepicker]="picker">
+          <input  matInput [matDatepicker]="picker" [(ngModel)]="birthDate">
           <mat-datepicker-toggle matSuffix [for]="picker">
             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
           </mat-datepicker-toggle>
@@ -66,43 +82,43 @@
 
         <mat-form-field appearance="outline" class="pet-name register-field">
           <mat-label>Birth Place <i class="fa-solid fa-house"></i></mat-label>
-          <input class="input-new"  matInput placeholder="Where are you bord?">
+          <input class="input-new"  matInput placeholder="Where are you bord?" [(ngModel)]="birthPlace">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="pet-type register-field">
           <mat-label>Living City <i class="fa-solid fa-location-dot"></i></mat-label>
-          <input class="input-new"  matInput placeholder="Where are you living?">
+          <input class="input-new"  matInput placeholder="Where are you living?" [(ngModel)]="livingCity">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="pet-breed register-field">
           <mat-label>Occupation <i class="fa-solid fa-briefcase"></i></mat-label>
-          <input class="input-new"  matInput placeholder="What are you working?">
+          <input class="input-new"  matInput placeholder="What are you working?" [(ngModel)]="occupation">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="pet-color register-field">
           <mat-label>Work Place <i class="fa-solid fa-building-user"></i></mat-label>
-          <input class="input-new" matInput placeholder="Where are you working?">
+          <input class="input-new" matInput placeholder="Where are you working?" [(ngModel)]="workPlace">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="pet-color register-field">
           <mat-label>Studies <i class="fa-solid fa-graduation-cap"></i></mat-label>
-          <input class="input-new" matInput placeholder="Where have you studied?">
+          <input class="input-new" matInput placeholder="Where have you studied?" [(ngModel)]="studies">
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
 
         <mat-form-field class="example-full-width register-field" appearance="outline">
           <mat-label>Description</mat-label>
-          <input class="input-new"   matInput #message maxlength="256" placeholder="My pet likes to eat carrots.">
+          <input class="input-new"   matInput #message maxlength="256" placeholder="I'm a good singer." [(ngModel)]="description">
           <mat-hint align="start"><strong>Describe yourself!</strong> </mat-hint>
           <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
         </mat-form-field>
 
         <div class="action-buttons">
-          <button   class="round-button" mat-raised-button color="accent" > Update profile </button>
+          <button   class="round-button" mat-raised-button color="accent" (click)="onUpdateClick()" > Update profile </button>
         </div>
 
     </div>

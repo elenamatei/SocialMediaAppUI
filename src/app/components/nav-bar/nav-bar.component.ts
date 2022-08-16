@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router ) { }
+
+  userId: string | null = "";
 
   ngOnInit(): void {
+
+    this.userId = localStorage.getItem("user_id");
   }
 
 
@@ -19,11 +24,18 @@ export class NavBarComponent implements OnInit {
   showCollapse(){
 
     this.showToast = !this.showToast;
-    console.log(this.showToast);
   }
 
   showDrop(){
     this.dropIsVisible = !this.dropIsVisible;
+  }
+
+  async logout(){
+
+    localStorage.setItem("token", "");
+    localStorage.setItem("user_id", "");
+    await this.router.navigate(['/home']);
+
   }
 
 

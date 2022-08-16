@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-intermediate-pet-register',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntermediatePetRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  hasPet: String;
+
+  async continue(){
+    if(this.hasPet == "yes"){
+     await this.router.navigate(['/registerPet']);
+    } else {
+     await this.router.navigate(['/feed']);
+    }
   }
 
 }

@@ -57,7 +57,24 @@
   border: solid var(--bold-purple) 3px;
   border-radius: 4px;
   margin:0.5em;
+
 }
+div .reset{
+  width: 100px;
+  height: 76.50px;
+  border: solid var(--bold-purple) 3px;
+  border-radius: 4px;
+  margin:0.5em;
+  padding-top: 15px;
+  padding-left: 25px;
+
+}
+div .reset i{
+  font-size: 40px;
+  text-align: center;
+}
+
+
 .filter-row{
   width: 225px;
   border-radius: 4px;
@@ -93,6 +110,16 @@
   border: 2px;
   box-shadow: 0 8px 32px 0 var(--dark-blue);
 }
-/*.filter-field{*/
-/*  width: 105px;*/
-/*}*/
+app-my-pets-list-card{
+  animation: showCard 1.5s;
+}
+
+@keyframes showCard {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

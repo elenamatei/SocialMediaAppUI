@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register-pet',
@@ -8,10 +9,11 @@ import axios from "axios";
 })
 export class RegisterPetComponent implements OnInit {
 
-
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+
+    this.isLoggedIn();
   }
   selectedProfilePhoto: File;
   selectedPhotoString : String;
@@ -25,23 +27,18 @@ export class RegisterPetComponent implements OnInit {
   description: String;
   isNeutered: String;
 
+  async isLoggedIn(){
+    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
+      await this.router.navigate(['/home']);
+    }
+  }
 
   onPhotoSelected(photoselector:HTMLInputElement){
-    //
-    // // @ts-ignore
-    // this.selectedProfilePhoto = photoselector.files[0];
-    // console.log(this.selectedProfilePhoto)
-    // const imageFormData = new FormData();
-    // imageFormData.append('image', this.selectedProfilePhoto, this.selectedProfilePhoto.name);
-    //
-    // console.log(imageFormData);
-
     // @ts-ignore
     this.selectedProfilePhoto = photoselector.files[0];
     if(!this.selectedProfilePhoto) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedProfilePhoto);
-    // console.log(fileReader);
     fileReader.addEventListener(
       "loadend",
       ev => {
@@ -50,18 +47,14 @@ export class RegisterPetComponent implements OnInit {
         let postPreviewImage = <HTMLImageElement>document.getElementById("post-preview-image");
         postPreviewImage.src = readableString;
         this.selectedPhotoString = readableString;
-        console.log(readableString)
-
 
       }
     )
 
   }
 
-
-
   async handlePetRegister(){
-    let resultAxios =await axios.post('http://localhost:4200/api/registerPet',
+    let resultAxios = (await axios.post('http://localhost:4200/api/registerPet',
       {
         "name":this.name,
         "type": this.type,
@@ -73,7 +66,7 @@ export class RegisterPetComponent implements OnInit {
         "description": this.description,
         "isNeutered": this.isNeutered,
         "picture":this.selectedPhotoString,
-        "token":"d223a989e493ebb60c7426b1a666fac4"
+        "token": localStorage.getItem("token")
 
       },
       {
@@ -81,16 +74,12 @@ export class RegisterPetComponent implements OnInit {
           'Access-Control-Allow-Origin': '*',
           'Accept': '*/*'}
 
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
+      })).data;
 
-
+    if(resultAxios.addedPet) {
+      await this.router.navigate(['/feed']);
+    }
 
   }
-
-
-
 
 }

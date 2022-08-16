@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import axios from "axios";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile-details',
@@ -9,12 +9,12 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProfileDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.isLoggedIn();
   }
 
-  @Input() show: boolean = true
   selectedProfilePhoto: File;
   selectedPhotoString : String;
   description: String;
@@ -23,6 +23,13 @@ export class ProfileDetailsComponent implements OnInit {
   workPlace: String;
   livingCity: String;
   studies: String;
+
+
+  async isLoggedIn(){
+    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
+      await this.router.navigate(['/home']);
+    }
+  }
 
 
   onPhotoSelected(photoselector:HTMLInputElement){
@@ -50,13 +57,8 @@ export class ProfileDetailsComponent implements OnInit {
 
 
   async handleAddDetails(){
-    // console.log(this.description);
-    // let id = "";
-    // this.route.params.subscribe( res => {
-    //   id = res["id"];
-    //
-    // } );
-    let resultAxios =await axios.post('http://localhost:4200/api/addDetails/',
+
+    let resultAxios = (await axios.post('http://localhost:4200/api/addDetails/',
       {
         "birthPlace":this.birthPlace,
         "livingCity":this.livingCity,
@@ -65,19 +67,16 @@ export class ProfileDetailsComponent implements OnInit {
         "studies": this.studies,
         "description":this.description,
         "profilePicture":this.selectedPhotoString,
-        "token":"9cc679a5e7e8d355a4a33a3a54e27d73"
+        "token":localStorage.getItem("token")
       },
       {
         headers: { 'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
           'Accept': '*/*'}
 
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
+      })).data;
 
-
+    await this.router.navigate(['/feed']);
   }
 
 

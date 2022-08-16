@@ -11,8 +11,6 @@ export class EditPetProfileComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
   selectedProfilePhoto: File;
   selectedPhotoString : String;
   name: String;
@@ -24,6 +22,8 @@ export class EditPetProfileComponent implements OnInit {
   favouriteFood: String;
   description: String;
   isNeutered: String;
+  picture: String;
+  baseUrl = 'http://localhost:4200';
 
   onPhotoSelected(photoselector:HTMLInputElement){
 
