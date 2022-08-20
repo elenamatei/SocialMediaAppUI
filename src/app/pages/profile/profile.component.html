@@ -85,7 +85,7 @@
 
       <div class="buttons">
 
-        <button class="round-button  message-button"  mat-raised-button  color="primary"><mat-icon> message</mat-icon>Message</button>
+        <button (click)="onMessageClick(this.urlId)" class="round-button  message-button"  mat-raised-button  color="primary"><mat-icon> message</mat-icon>Message</button>
         <a> <button  class="round-button pets-button" mat-raised-button color="accent" > <mat-icon>pets</mat-icon> Pets Profiles  </button></a>
       </div>
     </div>

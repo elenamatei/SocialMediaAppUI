@@ -34,6 +34,7 @@ export class NavBarComponent implements OnInit {
 
     localStorage.setItem("token", "");
     localStorage.setItem("user_id", "");
+    localStorage.setItem("full_name", "");
     await this.router.navigate(['/home']);
 
   }

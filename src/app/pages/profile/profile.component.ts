@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {ChatComponent} from "../../components/chat/chat.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-profile',
@@ -9,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private dialog:MatDialog, private router: Router) {
 
   }
 
@@ -28,10 +30,12 @@ export class ProfileComponent implements OnInit {
   petsNumber: String;
 
   localStorageId: string | null;
-  urlId: undefined;
+  urlId: string;
   baseUrl = 'http://localhost:4200';
 
   ngOnInit(): void {
+
+    this.isLoggedIn();
 
     this.localStorageId = localStorage.getItem("user_id");
 
@@ -41,6 +45,13 @@ export class ProfileComponent implements OnInit {
 
       this.getUser();
   }
+
+  async isLoggedIn(){
+    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
+      await this.router.navigate(['/home']);
+    }
+  }
+
   async getUser() {
 
     let resultAxios = (await axios.get('http://localhost:4200/api/profile/'+this.urlId,
@@ -53,6 +64,7 @@ export class ProfileComponent implements OnInit {
 
       })).data;
 
+    console.log(resultAxios.user);
     if(resultAxios.user){
         this.lastName = resultAxios.user.lastName;
         this.firstName = resultAxios.user.firstName;
@@ -70,7 +82,7 @@ export class ProfileComponent implements OnInit {
     }
     if(resultAxios.pets){
       this.petsNumber = resultAxios.pets;
-      console.log(resultAxios.pets);
+      // console.log(resultAxios.pets);
     }
 
   }
@@ -86,6 +98,10 @@ export class ProfileComponent implements OnInit {
     }
 
     return age;
+  }
+
+  async onMessageClick(userId: string){
+    this.dialog.open(ChatComponent).componentInstance.userId = userId;
   }
 
 }

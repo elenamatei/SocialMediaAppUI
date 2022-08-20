@@ -31,39 +31,35 @@ input {
   direction: ltr;
 }
 
-.comment-name {
+/*.comment-container {*/
+/*  display: flex;*/
+/*}*/
+
+.message-name {
   font-size: .9em;
-  color: black;
-  margin-bottom: .4em;
 }
 
-.comment {
+.message {
   border-radius: 1em;
   background-color: gainsboro;
   padding: 1em;
   width: fit-content;
+
 }
 
-.creator-comment-container {
+.creator-message-container {
   display: flex;
-  justify-content: center;
-  align-items: end;
-  flex-direction: column;
-  width: 300px;
-  /*flex-wrap: wrap;*/
-}
-.creator-comment-container p{
-  /*justify-content: flex-end;*/
+  justify-content: flex-end;
+  text-align: end;
+  /*float:right;*/
 }
 
-.creator-comment{
-  background-color: var(--semi-dark-blue);
+.creator-message {
+  background-color: var(--bold-pink-accent);
   color: white;
-  padding: 0.8em;
-
 }
 
-.comment-container{
+.message-container{
   width: 350px;
   /*display: flex;*/
 }
@@ -74,7 +70,7 @@ input {
 
 button{
   color: white;
-  background-color: var(--semi-dark-blue);
+  background-color: var(--bold-pink-accent);
 }
 mat-dialog-container {
   display: block;
@@ -109,10 +105,7 @@ mat-dialog-container {
   .ng-star-inserted{
     width: 200px;
   }
-  .comment-container{
-    width: 200px;
-  }
-  .creator-comment-container{
+  .message-container{
     width: 200px;
   }
 

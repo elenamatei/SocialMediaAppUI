@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CommentsComponent} from "../comments/comments.component";
 import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -9,13 +10,14 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class PostComponent implements OnInit {
 
-  constructor(private dialog:MatDialog) { }
+  constructor(private dialog:MatDialog, private router: Router) { }
 
-  @Input() getPost = {user:{firstName:"",lastName:""},text:"", picture:""};
+  @Input() getPost = {user:{firstName:"",lastName:""},text:"", picture:"", id:""};
 
   firstName: String;
   lastName: String;
   text: String;
+  postId: string;
   pictureURL: String;
   baseUrl = 'http://localhost:4200';
 
@@ -24,9 +26,17 @@ export class PostComponent implements OnInit {
     this.lastName = this.getPost.user.lastName;
     this.text = this.getPost.text;
     this.pictureURL = this.getPost.picture;
+    this.postId = this.getPost.id;
+
+    this.isLoggedIn();
 
   }
 
+  async isLoggedIn(){
+    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
+      await this.router.navigate(['/home']);
+    }
+  }
 
 
   // onHeartClick(){
@@ -70,9 +80,8 @@ export class PostComponent implements OnInit {
   //
   // }
   //
-  onCommentsClick(){
-    // this.dialog.open(CommentsComponent,{data: this.postData.postId});
-    this.dialog.open(CommentsComponent);
+  onCommentsClick(postId: string){
+    this.dialog.open(CommentsComponent).componentInstance.postId = postId;
   }
 
 

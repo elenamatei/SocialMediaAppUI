@@ -31,7 +31,8 @@ export class PetProfileComponent implements OnInit {
   favouriteFood: String;
   description: String;
   picture: String;
-  ownerId: String;
+  owner_Id: string;
+  ownerName: string;
   // age: String;
 
   baseUrl = 'http://localhost:4200';
@@ -47,7 +48,7 @@ export class PetProfileComponent implements OnInit {
 
 
     } );
-    let resultAxios = await axios.get('http://localhost:4200/api/petProfile/'+user_id+"/"+id,
+    let resultAxios = (await axios.get('http://localhost:4200/api/petProfile/'+user_id+"/"+id,
 
       {
         headers: {
@@ -55,35 +56,53 @@ export class PetProfileComponent implements OnInit {
           'Accept': '*/*'
         }
 
-      })
-      .then((response) => {
-        console.log(response.data);
+      })).data;
+    if(resultAxios.petProfile){
+        this.name = resultAxios.petProfile.name;
+        this.type = resultAxios.petProfile.type;
+        this.race = resultAxios.petProfile.race;
+        this.color = resultAxios.petProfile.color;
+        this.birthDate =resultAxios.petProfile.birthDate;
+        this.gender = resultAxios.petProfile.gender;
+        this.favouriteFood = resultAxios.petProfile.favouriteFood;
+        this.description = resultAxios.petProfile.description;
+        this.isNeutered = resultAxios.petProfile.isNeutered;
+        this.picture = resultAxios.petProfile.picture;
+        this.ownerName = resultAxios.petProfile.user.lastName +" "+ resultAxios.petProfile.user.firstName;
 
-        // this.petId = response.data.id;
-        this.name = response.data.name;
-        this.type = response.data.type;
-        this.race = response.data.race;
-        this.color = response.data.color;
-        this.birthDate = response.data.birthDate;
-        this.gender = response.data.gender;
-        this.favouriteFood = response.data.favouriteFood;
-        this.description = response.data.description;
-        this.isNeutered = response.data.isNeutered;
-        this.picture = response.data.picture;
-        // this.age = response.data.age;
+    }
 
-        this.ownerId = response.data.user.id;
-      });
+
+    if(resultAxios.ownerId){
+      this.owner_Id = resultAxios.ownerId;
+    }
+      // .then((response) => {
+      //   console.log(response.data);
+      //
+      //   // this.petId = response.data.id;
+      //   this.name = response.data.name;
+      //   this.type = response.data.type;
+      //   this.race = response.data.race;
+      //   this.color = response.data.color;
+      //   this.birthDate = response.data.birthDate;
+      //   this.gender = response.data.gender;
+      //   this.favouriteFood = response.data.favouriteFood;
+      //   this.description = response.data.description;
+      //   this.isNeutered = response.data.isNeutered;
+      //   this.picture = response.data.picture;
+      //   // this.age = response.data.age;
+      //
+      //   this.ownerId = response.data.user.id;
+      // });
 
     // console.log(this.name, this.petId);
-    console.log(this.name);
+
 
   }
 
-  async goToUser(owner_id:String){
-
-    await this.router.navigate(['/profile/'+ this.ownerId]);
-    console.log(this.name, this.ownerId, );
+  async goToOwner(owner:string){
+    await this.router.navigate(['/profile/' + owner ]);
+    console.log(this.name, this.owner_Id);
 
   }
 

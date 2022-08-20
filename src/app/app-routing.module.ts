@@ -24,7 +24,7 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'register', component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  {path:'profile', component:ProfileComponent},
+  // {path:'profile', component:ProfileComponent},
   {path:'profile/:id', component:ProfileComponent},
   {path:'feed', component:FeedComponent},
   {path:'editProfile', component:EditProfileComponent},

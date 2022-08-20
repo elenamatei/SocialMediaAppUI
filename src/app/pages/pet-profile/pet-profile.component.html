@@ -18,7 +18,7 @@
       <div class="content">
 
 
-        <div class="edit-profile" matTooltip="Edit profile" *ngIf="localStorageId == ownerId">
+        <div class="edit-profile" matTooltip="Edit profile" *ngIf="localStorageId == owner_Id">
           <a [routerLink]="['/editPetProfile']"> <mat-icon>edit</mat-icon></a>
         </div>
 
@@ -63,8 +63,8 @@
             <div class="grouped-item-title">Birth Date</div>
           </div>
           <div class="grouped-item">
-            <a [routerLink]="['/profile']">
-            <div class="grouped-item-description" (click)="goToUser(ownerId)">Elena Matei</div></a>
+
+            <div class="grouped-item-description" (click)="goToOwner(this.owner_Id)">{{ownerName}}</div>
             <div class="grouped-item-title">Owner</div>
           </div>
 

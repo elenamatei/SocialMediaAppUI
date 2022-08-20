@@ -56,6 +56,7 @@ export class RegisterComponent implements OnInit {
     } else {
       localStorage.setItem("token", resultAxios.token);
       localStorage.setItem("user_id", resultAxios.user_id);
+      localStorage.setItem("full_name", resultAxios.full_name);
       await this.router.navigate(['/anyPets']);
     }
 

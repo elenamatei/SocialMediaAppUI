@@ -46,6 +46,7 @@ import { BirthdaysPageComponent } from './pages/birthdays-page/birthdays-page.co
 import { CommentsComponent } from './components/comments/comments.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { IntermediatePetRegisterComponent } from './pages/intermediate-pet-register/intermediate-pet-register.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 
@@ -74,7 +75,8 @@ import { IntermediatePetRegisterComponent } from './pages/intermediate-pet-regis
     BirthdayCardComponent,
     BirthdaysPageComponent,
     CommentsComponent,
-    IntermediatePetRegisterComponent
+    IntermediatePetRegisterComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

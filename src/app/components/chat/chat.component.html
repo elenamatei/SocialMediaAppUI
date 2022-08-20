@@ -1,0 +1,16 @@
+<p>Conversation</p>
+<div id="reply-box">
+  <div *ngFor="let message of allMessages">
+    <div [ngClass]="{'message-container': true,'creator-message-container': isMessageCreator(message.receiverId)}">
+<!--      <p class="message-name"  *ngIf="userId==message.senderId">Molly</p>-->
+<!--      <p class="message-name"  *ngIf="userId!=message.senderId">Mollyy</p>-->
+      <p [ngClass]="{'message': true, 'creator-message': isMessageCreator(message.receiverId)}">{{message.text}}</p>
+    </div>
+  </div>
+</div>
+<div id="reply-action-bar">
+  <button mat-flat-button (click)="sendMessage(messageInput)" >
+    <mat-icon id="send-icon">send</mat-icon>
+  </button>
+  <input  placeholder="Write a message" #messageInput>
+</div>

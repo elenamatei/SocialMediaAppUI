@@ -1,5 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import axios from "axios";
+import {CommentsComponent} from "../comments/comments.component";
+import {MatDialog} from "@angular/material/dialog";
+import {ChatComponent} from "../chat/chat.component";
 
 @Component({
   selector: 'app-profile-card',
@@ -8,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class ProfileCardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private dialog:MatDialog,private el: ElementRef) { }
 
   @Input() getAllUsers = {user:{firstName:"",lastName:"",birthDate:"",joinedDate:"",gender:"",id:""},occupation:"",livingCity: "",profilePicture:""};
 
@@ -24,6 +28,8 @@ export class ProfileCardComponent implements OnInit {
   baseUrl = 'http://localhost:4200';
 
 
+
+
   ngOnInit(): void {
     this.firstName = this.getAllUsers.user.firstName;
     this.lastName = this.getAllUsers.user.lastName;
@@ -35,6 +41,14 @@ export class ProfileCardComponent implements OnInit {
     this.livingCity = this.getAllUsers.livingCity;
     this.profilePicture = this.getAllUsers.profilePicture;
 
+    this.isLoggedIn();
+
+  }
+
+  async isLoggedIn(){
+    if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
+      await this.router.navigate(['/home']);
+    }
   }
 
   ageFromBirthDate(birthDate: string): number {
@@ -63,5 +77,11 @@ export class ProfileCardComponent implements OnInit {
     console.log(this.firstName, this.userId );
 
   }
+
+  async onMessageClick(userId: string){
+    this.dialog.open(ChatComponent).componentInstance.userId = userId;
+
+  }
+
 
 }
