@@ -16,17 +16,11 @@
       <button mat-button color="warn">
         <label for="photo-upload">
           <input class="input-new"  #photoSelector (change)="onPhotoSelected(photoSelector)"
-              [(ngModel)]="profilePicture"   id="photo-upload" type="file" accept="image/*"/>
+                 id="photo-upload" type="file" accept="image/*"/>
           <i class="fa-solid fa-id-badge"></i>  Change picture
         </label>
       </button>
     </div>
-
-<!--    <div class="change-photo">-->
-<!--        <button  class="round-button-pic"  mat-raised-button color="accent" >-->
-<!--          Change picture-->
-<!--        </button>-->
-<!--    </div>-->
 
     <div class="boxes mt-2 ">
       <div class="shadows">
@@ -50,7 +44,6 @@
         <mat-form-field appearance="outline" class="email register-field">
           <mat-label>Email</mat-label>
           <input matInput  placeholder="socialmedia@example.com"  [(ngModel)]="email" disabled  >
-          <!--        <mat-error *ngIf="email.invalid">{{getEmailErrorMessage()}}</mat-error>-->
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="password register-field" >

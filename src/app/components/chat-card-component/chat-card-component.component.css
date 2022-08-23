@@ -18,10 +18,7 @@
   object-fit: cover;
   border-radius: 50%;
 }
-.age{
-  color: var(--profile-text-color);
-  font-size: 16px;
-}
+
 .name{
   color: var(--bold-purple);
   font-size: 19px;
@@ -36,14 +33,15 @@ a{
   margin-left: 3em;
   padding: 5px;
 }
-.birthday-row{
+.chat-row{
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /*flex-wrap: wrap;*/
   border-radius: 4px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding:5px;
   justify-content: flex-start;
   margin: 5px;
 }
+
 

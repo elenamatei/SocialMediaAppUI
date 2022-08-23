@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CommentsComponent} from "../comments/comments.component";
 import {MatDialog} from "@angular/material/dialog";
 import {Router} from "@angular/router";
+import axios from "axios";
 
 @Component({
   selector: 'app-post',
@@ -19,7 +20,10 @@ export class PostComponent implements OnInit {
   text: String;
   postId: string;
   pictureURL: String;
+  localUserId: string | null;
   baseUrl = 'http://localhost:4200';
+  postIsLiked = false;
+
 
   ngOnInit(): void {
     this.firstName = this.getPost.user.firstName;
@@ -27,8 +31,10 @@ export class PostComponent implements OnInit {
     this.text = this.getPost.text;
     this.pictureURL = this.getPost.picture;
     this.postId = this.getPost.id;
+    this.localUserId = localStorage.getItem("user_id");
 
     this.isLoggedIn();
+    this.verifyLike(this.postId,this.localUserId);
 
   }
 
@@ -39,49 +45,47 @@ export class PostComponent implements OnInit {
   }
 
 
-  // onHeartClick(){
-  //   this.postData.liked = !this.postData.liked;
-  //   this.firestore.update(
-  //     {// @ts-ignore
-  //       path: ["Posts", this.postData.postId],
-  //       data: {
-  //         liked: this.postData.liked
-  //
-  //       },
-  //       onComplete: (docId ) => {
-  //
-  //       },
-  //       onFail: (err) =>{
-  //
-  //       }
-  //     }
-  //   );
-  // }
-  //
-  //
-  //
-  //
-  //
-  // getCreatorInfo(){
-  //   this.firestore.getDocument(
-  //     {
-  //       path: ["Users", this.postData.creatorId],
-  //       onComplete: result => {
-  //         let userDocument = result.data();
-  //         // @ts-ignore
-  //         this.creatorName = userDocument.publicName;
-  //         // @ts-ignore
-  //         this.creatorDescription = userDocument.description;
-  //
-  //       }
-  //
-  //     }
-  //   );
-  //
-  // }
-  //
   onCommentsClick(postId: string){
     this.dialog.open(CommentsComponent).componentInstance.postId = postId;
+  }
+
+  async isLiked(postId:string, localUserId:string | null){
+
+      let resultAxios =(await axios.get('http://localhost:4200/api/feed/giveLike/'+ postId + "/"+ localUserId,
+
+        {
+          headers: { 'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Accept': '*/*'}
+
+        })).data;
+    this.postIsLiked = true;
+  }
+
+
+  async isDisliked(postId:string, localUserId:string | null){
+    let resultAxios =(await axios.get('http://localhost:4200/api/feed/takeLike/'+ postId + "/"+ localUserId,
+
+      {
+        headers: { 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': '*/*'}
+
+      })).data;
+    this.postIsLiked = false;
+  }
+
+  async verifyLike(postId:string, localUserId:string | null){
+
+    let resultAxios =(await axios.get('http://localhost:4200/api/feed/verifyLike/'+ postId + "/"+ localUserId,
+
+      {
+        headers: { 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': '*/*'}
+
+      })).data;
+    this.postIsLiked = resultAxios.liked;
   }
 
 

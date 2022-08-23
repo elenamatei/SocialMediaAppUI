@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import axios from "axios";
 
@@ -22,6 +22,8 @@ export class CommentsComponent implements OnInit {
   userId: string;
   token: string | null;
   userName: string;
+  isOpened = false;
+  commentRefresh: number;
 
   allComments: undefined;
 
@@ -34,6 +36,19 @@ export class CommentsComponent implements OnInit {
     let replyBox = this.el.nativeElement.querySelector("#reply-box");
     // @ts-ignore
     replyBox.scrollTop = replyBox.scrollHeight;
+  }
+
+  @HostListener("document:click", ['$event'])
+  clickedOut() {
+    // @ts-ignore
+    if(!this.el.nativeElement.contains(event.target)){
+      if(this.isOpened){
+        clearTimeout(this.commentRefresh);
+      }
+
+      this.isOpened = !this.isOpened;
+    }
+
   }
 
   async getComments(postId: string){
@@ -52,7 +67,7 @@ export class CommentsComponent implements OnInit {
       })).data;
 
     this.allComments = resultAxios.comments;
-    setTimeout(()=> this.getComments(this.postId), 1000);
+    this.commentRefresh = setTimeout(()=> this.getComments(this.postId), 1000);
   }
 
   async postComment(commentInput:HTMLInputElement){

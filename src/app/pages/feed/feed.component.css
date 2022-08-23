@@ -58,7 +58,11 @@
 }
 
 @media screen and (min-width: 1280px){
-  mat-card{
+  mat-card:hover{
+    box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
+  }
+
+  .birthdays{
     width:300px;
     position: fixed;
     top:15em;
@@ -66,42 +70,60 @@
     height: 360px;
     transition-duration: 1.5s;
   }
-  mat-card:hover{
-    box-shadow: var(--dark-blue) 0px 19px 38px, var(--dark-blue) 0px 15px 12px;
 
-  }
-  .mat-card.scrollable-content {
+  .birthdays {
     overflow: hidden;
     display: flex;
     flex-direction: column;
   }
 
-  .mat-card.scrollable-content > .mat-card-title-group {
+  .birthdays > .mat-card-title-group {
     display: block;
   }
 
-  .mat-card.scrollable-content > .mat-card-content {
+  .birthdays > .mat-card-content {
     overflow-y: auto;
   }
-  mat-card-header{
+  .birthdays mat-card-header{
+    padding: 10px;
+  }
+
+
+  .chat{
+    width:300px;
+    position: fixed;
+    top:15em;
+    right: 5em;
+    height: 360px;
+    transition-duration: 1.5s;
+  }
+
+  .chat {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat > .mat-card-title-group {
+    display: block;
+  }
+
+  .chat > .mat-card-content {
+    overflow-y: auto;
+  }
+  .chat mat-card-header{
     padding: 10px;
   }
 
 }
 
 @media screen and (max-width: 1280px){
-  /*mat-card .scrollable-content{*/
-  /*  display: none;*/
 
-  /*}*/
   mat-card.invisible-card{
     display: none;
   }
+
 }
 
-/*mat-card-content{*/
-/*  overflow-y: auto;*/
-
-/*}*/
 
 

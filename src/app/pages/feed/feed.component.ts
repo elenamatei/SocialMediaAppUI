@@ -18,9 +18,13 @@ export class FeedComponent implements OnInit {
 
     this.isLoggedIn();
     this.getInfo();
+    this.getBirthdays();
+    this.getConversations();
   }
 
   allPosts: undefined;
+  birthdays: undefined;
+  conversations: undefined;
   detailsAdded: Boolean;
 
   async isLoggedIn(){
@@ -28,10 +32,6 @@ export class FeedComponent implements OnInit {
       await this.router.navigate(['/home']);
     }
   }
-  // refreshPageAfterPost(){
-  //   alert('nskjmn sca');
-  // }
-
 
   async getInfo() {
 
@@ -50,12 +50,39 @@ export class FeedComponent implements OnInit {
     this.detailsAdded = resultAxios.hasDetails;
 
   }
+  async getBirthdays() {
 
+    let resultAxios =(await axios.post('http://localhost:4200/api/feed/birthdays',
+      {
+      },
+      {
+        headers: { 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': '*/*'}
+
+      })).data;
+
+    this.birthdays = resultAxios.birthdays;
+  }
+  async getConversations() {
+
+    let resultAxios =(await axios.post('http://localhost:4200/api/feed/conversations',
+      {
+        "token": localStorage.getItem("token")
+      },
+      {
+        headers: { 'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Accept': '*/*'}
+
+      })).data;
+
+    this.conversations = resultAxios.conversations;
+  }
 
   onCreatePostClick() {
     this.dialog.open(CreatePostComponent).afterClosed().subscribe(result=>{
       this.getInfo();
     });
-    // (refreshPage)="refreshPageAfterPost()"
   }
 }

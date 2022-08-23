@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
 import {Router} from "@angular/router";
+import {ThemePalette} from "@angular/material/core";
 
 @Component({
   selector: 'app-register-pet',
@@ -20,12 +21,17 @@ export class RegisterPetComponent implements OnInit {
   name: String;
   type: String;
   race: String;
-  color: String;
+  colorP: String;
   birthDate: Date;
   gender: String;
   favouriteFood: String;
   description: String;
   isNeutered: String;
+  isAdoption = false;
+
+  checked = false;
+  disabled = false;
+  color: ThemePalette = 'accent';
 
   async isLoggedIn(){
     if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
@@ -59,13 +65,14 @@ export class RegisterPetComponent implements OnInit {
         "name":this.name,
         "type": this.type,
         "race":this.race,
-        "color":this.color,
+        "color":this.colorP,
         "birthDate":this.birthDate,
         "gender":this.gender,
         "favouriteFood": this.favouriteFood,
         "description": this.description,
         "isNeutered": this.isNeutered,
         "picture":this.selectedPhotoString,
+        "isAdoption": this.isAdoption,
         "token": localStorage.getItem("token")
 
       },

@@ -14,13 +14,7 @@
   <div class="content">
 
 
-    <app-adoption-card></app-adoption-card>
-    <app-adoption-card></app-adoption-card>
-    <app-adoption-card></app-adoption-card>
-    <app-adoption-card></app-adoption-card>
-    <app-adoption-card></app-adoption-card>
-    <app-adoption-card></app-adoption-card>
-    <app-adoption-card></app-adoption-card>
+    <app-adoption-card *ngFor=" let adoption of allAdoptions" [getAdoptions]="adoption"></app-adoption-card>
 
 
 

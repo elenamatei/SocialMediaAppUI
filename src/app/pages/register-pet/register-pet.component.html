@@ -44,7 +44,7 @@
 
       <mat-form-field appearance="outline" class="pet-color register-field">
         <mat-label>Color <i class="fa-solid fa-palette"></i></mat-label>
-        <input class="input-new" [(ngModel)]="color" matInput placeholder="Gray,White,Black...">
+        <input class="input-new" [(ngModel)]="colorP" matInput placeholder="Gray,White,Black...">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
 
@@ -87,6 +87,17 @@
                 <mat-radio-button value="Not yet">Not yet</mat-radio-button>
               </mat-radio-group>
         </div>
+
+        <div class="adoption-toggle">
+          <mat-slide-toggle
+            class="example-margin"
+            [color]= "color" [checked]="checked" [disabled]="disabled" [(ngModel)]="isAdoption" >
+            Is Adoption?
+          </mat-slide-toggle>
+
+        </div>
+
+
 
         <div class="profile-image register-field">
               <span>Select profile photo<i class="fa-solid fa-paw"></i></span>

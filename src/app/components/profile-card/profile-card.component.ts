@@ -25,10 +25,8 @@ export class ProfileCardComponent implements OnInit {
   profilePicture: String;
   userId: string;
   gender: String;
+  myUserId = localStorage.getItem("user_id");
   baseUrl = 'http://localhost:4200';
-
-
-
 
   ngOnInit(): void {
     this.firstName = this.getAllUsers.user.firstName;
@@ -37,12 +35,23 @@ export class ProfileCardComponent implements OnInit {
     this.joinedDate = this.getAllUsers.user.joinedDate;
     this.userId = this.getAllUsers.user.id;
     this.gender = this.getAllUsers.user.gender;
-    this.occupation = this.getAllUsers.occupation;
-    this.livingCity = this.getAllUsers.livingCity;
-    this.profilePicture = this.getAllUsers.profilePicture;
+    if(this.getAllUsers.occupation == null){
+      this.occupation = "unspecified";
+    } else{
+      this.occupation = this.getAllUsers.occupation;
+    }
+    if(this.getAllUsers.livingCity == null){
+      this.livingCity = "unspecified";
+    } else {
+      this.livingCity = this.getAllUsers.livingCity;
+    }
+    if(this.getAllUsers.profilePicture == null){
+      this.profilePicture = "/api/uploads/user.png";
+    } else {
+      this.profilePicture = this.getAllUsers.profilePicture;
+    }
 
     this.isLoggedIn();
-
   }
 
   async isLoggedIn(){
@@ -74,13 +83,11 @@ export class ProfileCardComponent implements OnInit {
   async goToProfile(userId:String){
 
     await this.router.navigate(['/profile/'+ this.userId ]);
-    console.log(this.firstName, this.userId );
 
   }
 
   async onMessageClick(userId: string){
     this.dialog.open(ChatComponent).componentInstance.userId = userId;
-
   }
 
 

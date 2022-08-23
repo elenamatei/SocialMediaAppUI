@@ -43,6 +43,7 @@ export class EditProfileComponent implements OnInit {
   studies: String;
   description: String;
   profilePicture: String;
+  updatedProfilePicture: String;
 
   selectedProfilePhoto: File;
   selectedPhotoString : String;
@@ -98,7 +99,7 @@ export class EditProfileComponent implements OnInit {
         "workPlace":this.workPlace,
         "studies": this.studies,
         "description":this.description,
-        "profilePicture":this.profilePicture
+        "profilePicture":((!this.updatedProfilePicture)? '' : this.updatedProfilePicture)
       },
       {
         headers: { 'Content-Type': 'application/json',
@@ -116,13 +117,11 @@ export class EditProfileComponent implements OnInit {
   }
 
   onPhotoSelected(photoselector:HTMLInputElement){
-
     // @ts-ignore
     this.selectedProfilePhoto = photoselector.files[0];
     if(!this.selectedProfilePhoto) return;
     let fileReader = new FileReader();
     fileReader.readAsDataURL(this.selectedProfilePhoto);
-    // console.log(fileReader);
     fileReader.addEventListener(
       "loadend",
       ev => {
@@ -131,13 +130,10 @@ export class EditProfileComponent implements OnInit {
         let postPreviewImage = <HTMLImageElement>document.getElementById("post-preview-image");
         postPreviewImage.src = readableString;
         this.selectedPhotoString = readableString;
-        this.profilePicture = this.selectedPhotoString;
-        console.log(readableString)
+        this.updatedProfilePicture = this.selectedPhotoString;
 
       }
     )
-
   }
-
 
 }

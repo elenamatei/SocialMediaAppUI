@@ -1,6 +1,7 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
+import {Component, Directive, ElementRef, HostListener, Input, OnInit} from '@angular/core';
 import axios from "axios";
 import {Router} from "@angular/router";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-chat',
@@ -9,21 +10,37 @@ import {Router} from "@angular/router";
 })
 export class ChatComponent implements OnInit {
 
+  text: string;
+  name: string;
+  receiverId:string;
+  token: string | null;
+  userId: string;
+  chatRefresh: number;
+  creatorName: string;
+  allMessages:undefined;
+  isOpened = false;
+
   constructor(private router: Router, private el: ElementRef) { }
 
   ngOnInit(): void {
     this.isLoggedIn();
     this.getMessages(this.userId);
   }
-  text: string;
-  name: string;
-  receiverId:string;
-  token: string | null;
-  userId: string;
 
-  creatorName: string;
+  @HostListener("document:click", ['$event'])
+  clickedOut() {
+    // @ts-ignore
+    if(!this.el.nativeElement.contains(event.target)){
+      if(this.isOpened){
+        clearTimeout(this.chatRefresh);
+      }
 
-  allMessages:undefined;
+      this.isOpened = !this.isOpened;
+    }
+
+  }
+
+
 
   async isLoggedIn(){
     if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
@@ -37,7 +54,6 @@ export class ChatComponent implements OnInit {
       {
         "token": localStorage.getItem("token"),
         "receiverId": userId
-
       },
       {
         headers: { 'Content-Type': 'application/json',
@@ -47,8 +63,9 @@ export class ChatComponent implements OnInit {
       })).data;
     if(this.allMessages != resultAxios.conversation)
       this.scrollToBottom();
+
     this.allMessages = resultAxios.conversation;
-    setTimeout(()=> this.getMessages(this.userId), 1000);
+    this.chatRefresh = setTimeout(()=> {this.getMessages(this.userId);}, 1000);
   }
 
   async sendMessage(messageInput:HTMLInputElement){

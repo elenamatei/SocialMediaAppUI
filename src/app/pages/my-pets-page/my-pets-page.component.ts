@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-my-pets-page',
@@ -9,14 +9,18 @@ import {Router} from "@angular/router";
 })
 export class MyPetsPageComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  urlId: string;
+  allPets: undefined;
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.isLoggedIn();
+    this.route.params.subscribe( res => {
+      this.urlId = res["user_id"];
+    } );
     this.getPets();
   }
-
-  allPets: undefined;
 
   async isLoggedIn(){
     if(localStorage.getItem("token") == null || localStorage.getItem("token") == ""){
@@ -25,8 +29,7 @@ export class MyPetsPageComponent implements OnInit {
   }
 
   async getPets(){
-
-    let resultAxios = (await axios.get('http://localhost:4200/api/myPets/' + localStorage.getItem("user_id"),
+    let resultAxios = (await axios.get('http://localhost:4200/api/myPets/' + this.urlId,
 
       {
         headers: {
@@ -35,13 +38,12 @@ export class MyPetsPageComponent implements OnInit {
         }
 
       })).data;
-
     this.allPets = resultAxios.pets;
   }
 
   async filterByType(type: String){
 
-    let resultAxios = (await axios.get('http://localhost:4200/api/pets/'+ type + '/'+ localStorage.getItem("user_id"),
+    let resultAxios = (await axios.get('http://localhost:4200/api/pets/'+ type + '/'+ this.urlId,
 
       {
         headers: {

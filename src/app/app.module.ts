@@ -47,6 +47,9 @@ import { CommentsComponent } from './components/comments/comments.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { IntermediatePetRegisterComponent } from './pages/intermediate-pet-register/intermediate-pet-register.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ChatCardComponentComponent } from './components/chat-card-component/chat-card-component.component';
+import { ChatPageComponent } from './pages/chat-page/chat-page.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 
@@ -76,7 +79,9 @@ import { ChatComponent } from './components/chat/chat.component';
     BirthdaysPageComponent,
     CommentsComponent,
     IntermediatePetRegisterComponent,
-    ChatComponent
+    ChatComponent,
+    ChatCardComponentComponent,
+    ChatPageComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +107,8 @@ import { ChatComponent } from './components/chat/chat.component';
     FormsModule,
     MatGridListModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSlideToggleModule
 
   ],
   providers: [],

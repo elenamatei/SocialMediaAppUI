@@ -11,14 +11,9 @@ import {MatDialog} from "@angular/material/dialog";
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private dialog:MatDialog, private router: Router) {
-
-  }
-
   lastName : String;
   firstName : String;
   birthDate: string;
-  // age: String;
 
   birthPlace: String;
   livingCity: String;
@@ -32,6 +27,10 @@ export class ProfileComponent implements OnInit {
   localStorageId: string | null;
   urlId: string;
   baseUrl = 'http://localhost:4200';
+
+  constructor(private route: ActivatedRoute, private dialog:MatDialog, private router: Router) {
+
+  }
 
   ngOnInit(): void {
 
@@ -64,12 +63,10 @@ export class ProfileComponent implements OnInit {
 
       })).data;
 
-    console.log(resultAxios.user);
     if(resultAxios.user){
         this.lastName = resultAxios.user.lastName;
         this.firstName = resultAxios.user.firstName;
         this.birthDate = resultAxios.user.birthDate;
-        // this.age = resultAxios.user.age;
     }
     if(resultAxios.details){
       this.birthPlace = resultAxios.details.birthPlace;
@@ -78,11 +75,14 @@ export class ProfileComponent implements OnInit {
       this.occupation = resultAxios.details.occupation;
       this.workPlace = resultAxios.details.workPlace;
       this.description = resultAxios.details.description;
-      this.profilePicture = resultAxios.details.profilePicture;
+      if(resultAxios.details.profilePicture == null){
+        this.profilePicture = "/api/uploads/user.png";
+      } else {
+        this.profilePicture = resultAxios.details.profilePicture;
+      }
     }
     if(resultAxios.pets){
       this.petsNumber = resultAxios.pets;
-      // console.log(resultAxios.pets);
     }
 
   }
@@ -102,6 +102,11 @@ export class ProfileComponent implements OnInit {
 
   async onMessageClick(userId: string){
     this.dialog.open(ChatComponent).componentInstance.userId = userId;
+  }
+
+  async goToPets(ownerId:string){
+    ownerId = this.urlId;
+    await this.router.navigate(['/myPets/' + ownerId ]);
   }
 
 }

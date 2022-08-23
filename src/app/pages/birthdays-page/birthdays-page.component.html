@@ -1,5 +1,5 @@
 <div class="background"></div>
-<div class="logo">
+<div class="logo" [routerLink]="['/feed']">
   <img src="../../../assets/logo-lightbg.png">
 </div>
 <div class="content">
@@ -10,14 +10,7 @@
       <mat-card-title>Today's Birthdays <i class="fa-solid fa-cake-candles"></i></mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
-      <app-birthday-card></app-birthday-card>
+      <app-birthday-card *ngFor=" let birthday of birthdays" [getBirthdays]="birthday"></app-birthday-card>
     </mat-card-content>
 
   </mat-card>

@@ -37,7 +37,7 @@ const routes: Routes = [
   {path:'profileCard', component:ProfileCardComponent},
   {path:'addDetails', component:ProfileDetailsComponent},
   {path:'addDetails/:id', component:ProfileDetailsComponent},
-  {path:'editPetProfile', component:EditPetProfileComponent},
+  {path:'editPetProfile/:id', component:EditPetProfileComponent},
   {path:'adoptions', component:AdoptionsComponent},
   {path:'birthdays', component:BirthdaysPageComponent},
   {path:'anyPets', component:IntermediatePetRegisterComponent}

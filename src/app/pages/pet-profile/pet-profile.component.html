@@ -19,7 +19,7 @@
 
 
         <div class="edit-profile" matTooltip="Edit profile" *ngIf="localStorageId == owner_Id">
-          <a [routerLink]="['/editPetProfile']"> <mat-icon>edit</mat-icon></a>
+          <a [routerLink]="['/editPetProfile/'+ this.petId]"> <mat-icon>edit</mat-icon></a>
         </div>
 
 
